@@ -1,0 +1,775 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>2027 關西 8 天旅行</title>
+<style>
+:root{--bg:#f5f5f3;--card:#fff;--ink:#171717;--muted:#6b6b6b;--line:#deded9;--accent:#111}
+*{box-sizing:border-box} body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans TC",sans-serif;background:var(--bg);color:var(--ink)}
+.hero{padding:34px 20px 26px;background:#111;color:#fff} .hero-inner{max-width:900px;margin:auto}
+.kicker{font-size:12px;letter-spacing:.18em;opacity:.65} h1{font-size:32px;margin:8px 0 6px} .sub{opacity:.75;line-height:1.7}
+.stats{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px} .stat{border:1px solid #444;border-radius:12px;padding:10px 14px;font-size:13px}
+.navwrap{position:sticky;top:0;z-index:10;background:rgba(245,245,243,.94);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);overflow-x:auto}
+.nav{display:flex;max-width:900px;margin:auto;padding:9px 12px;gap:7px;min-width:max-content}
+.nav button{border:0;background:#e8e8e4;border-radius:10px;padding:8px 13px;cursor:pointer;color:#444} .nav button.active{background:#111;color:#fff}
+.nav small,.nav strong{display:block} .nav small{font-size:9px;opacity:.65} .nav strong{font-size:13px;margin-top:2px}
+main{max-width:900px;margin:0 auto;padding:22px 16px 50px} .day{display:none} .day.active{display:block}
+.dayhead{display:flex;justify-content:space-between;align-items:end;gap:16px;margin-bottom:20px} .dayhead h2{font-size:30px;margin:5px 0 0} .dayhead h3{font-size:16px;margin:0;color:#555;text-align:right}
+.badge{font-size:10px;letter-spacing:.12em;background:#111;color:#fff;padding:5px 8px;border-radius:5px}
+.timeline{background:var(--card);border-radius:18px;padding:6px 18px;box-shadow:0 2px 18px rgba(0,0,0,.05)}
+.event{display:grid;grid-template-columns:62px 32px 1fr;position:relative;padding:18px 0} .event:not(:last-child){border-bottom:1px solid #eee}
+.time{font-weight:700;font-size:13px;padding-top:3px} .dot{font-size:19px;text-align:center} .event-title{font-weight:750;font-size:16px} .event-desc{font-size:13px;color:var(--muted);line-height:1.6;margin:5px 0 9px}
+.mapbtn{display:inline-block;text-decoration:none;color:#111;background:#f0f0ed;padding:6px 9px;border-radius:8px;font-size:11px;font-weight:650}
+.actions{display:flex;gap:7px;flex-wrap:wrap}
+.deletebtn{border:0;background:#f5e8e8;color:#8a2424;padding:6px 9px;border-radius:8px;font-size:11px;font-weight:650;cursor:pointer}
+.addwrap{margin:14px 0 22px;display:flex;justify-content:flex-end}
+.addbtn{border:0;background:#111;color:#fff;border-radius:10px;padding:10px 14px;font-weight:750;cursor:pointer}
+.editor{display:none;background:#fff;border:1px solid var(--line);border-radius:16px;padding:16px;margin:12px 0 20px}
+.editor.open{display:block}
+.editorgrid{display:grid;grid-template-columns:110px 1fr;gap:10px}
+.editor input,.editor textarea{width:100%;border:1px solid #d9d9d4;border-radius:9px;padding:10px;font:inherit;background:#fafafa}
+.editor textarea{min-height:70px;resize:vertical}
+.editorbuttons{display:flex;gap:8px;justify-content:flex-end;margin-top:12px}
+.editorbuttons button{border:0;border-radius:9px;padding:9px 13px;cursor:pointer;font-weight:700}
+.savebtn{background:#111;color:#fff}.cancelbtn{background:#ecece8;color:#333}
+@media(max-width:560px){.editorgrid{grid-template-columns:1fr}}
+.note{margin-top:18px;padding:15px 17px;border-radius:14px;background:#fff8dc;font-size:13px;line-height:1.7}
+.footer{max-width:900px;margin:0 auto;padding:0 16px 40px;color:#777;font-size:12px;line-height:1.7}
+@media(max-width:560px){h1{font-size:27px} .dayhead{display:block} .dayhead h3{text-align:left;margin-top:7px} .event{grid-template-columns:55px 29px 1fr} .timeline{padding:4px 13px}}
+</style>
+</head>
+<body>
+<header class="hero"><div class="hero-inner">
+<div class="kicker">KANSAI · WINTER 2027</div>
+<h1>大阪・京都・奈良 8 天</h1>
+<div class="sub">2027.01.09 — 01.16 ｜ 弁天町住宿 ｜ 電車＋步行為主</div>
+<div class="stats"><div class="stat">✈️ 1/9 17:50 抵達</div><div class="stat">🏎️ 1/15 15:00 Akiba Kart</div><div class="stat">🛫 1/16 14:30 回程</div></div>
+</div></header>
+<div class="navwrap"><div class="nav"><button onclick="showDay(1)" id="b1"><small>DAY 1</small><strong>1/9</strong></button><button onclick="showDay(2)" id="b2"><small>DAY 2</small><strong>1/10</strong></button><button onclick="showDay(3)" id="b3"><small>DAY 3</small><strong>1/11</strong></button><button onclick="showDay(4)" id="b4"><small>DAY 4</small><strong>1/12</strong></button><button onclick="showDay(5)" id="b5"><small>DAY 5</small><strong>1/13</strong></button><button onclick="showDay(6)" id="b6"><small>DAY 6</small><strong>1/14</strong></button><button onclick="showDay(7)" id="b7"><small>DAY 7</small><strong>1/15</strong></button><button onclick="showDay(8)" id="b8"><small>DAY 8</small><strong>1/16</strong></button></div></div>
+<main>
+
+    <section class="day" id="day1">
+      <div class="dayhead"><div><span class="badge">DAY 1</span><h2>1/9（六）</h2></div><h3>抵達大阪・道頓堀</h3></div>
+      <div class="timeline" id="timeline1">
+        <div class="event">
+          <div class="time">17:50</div>
+          <div class="dot">✈️</div>
+          <div class="event-body">
+            <div class="event-title">抵達關西國際機場 KIX</div>
+            <div class="event-desc">入境、領行李，預留約 1～1.5 小時</div>
+            <div class="actions"><a class="mapbtn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Kansai+International+Airport">Google Maps ↗</a><button class="deletebtn" onclick="deleteEvent(this)">刪除</button></div>
+          </div>
+        </div>
+        <div class="event">
+          <div class="time">19:20</div>
+          <div class="dot">🚃</div>
+          <div class="event-body">
+            <div class="event-title">前往弁天町住宿</div>
+            <div class="event-desc">關西機場 → JR → 弁天町；依當日 NAVITIME / Google Maps 班次搭乘</div>
+            <div class="actions"><a class="mapbtn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Bentencho+Station">Google Maps ↗</a><button class="deletebtn" onclick="deleteEvent(this)">刪除</button></div>
+          </div>
+        </div>
+        <div class="event">
+          <div class="time">20:30</div>
+          <div class="dot">🏠</div>
+          <div class="event-body">
+            <div class="event-title">住宿 Check-in</div>
+            <div class="event-desc">5-chōme-2-5 Namiyoke, Osaka 552-0001</div>
+            <div class="actions"><a class="mapbtn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=5-chōme-2-5+Namiyoke+Osaka">Google Maps ↗</a><button class="deletebtn" onclick="deleteEvent(this)">刪除</button></div>
+          </div>
+        </div>
+        <div class="event">
+          <div class="time">21:00</div>
+          <div class="dot">🚇</div>
+          <div class="event-body">
+            <div class="event-title">前往難波</div>
+            <div class="event-desc">弁天町 → 本町 → 難波</div>
+            <div class="actions"><a class="mapbtn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Namba+Station+Osaka">Google Maps ↗</a><button class="deletebtn" onclick="deleteEvent(this)">刪除</button></div>
+          </div>
+        </div>
+        <div class="event">
+          <div class="time">21:30</div>
+          <div class="dot">🌃</div>
+          <div class="event-body">
+            <div class="event-title">道頓堀・金龍拉麵</div>
+            <div class="event-desc">第一晚輕鬆逛固力果、戎橋、道頓堀</div>
+            <div class="actions"><a class="mapbtn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Dotonbori+Osaka">Google Maps ↗</a><button class="deletebtn" onclick="deleteEvent(this)">刪除</button></div>
+          </div>
+        </div>
+        <div class="event">
+          <div class="time">23:00</div>
+          <div class="dot">🚇</div>
+          <div class="event-body">
+            <div class="event-title">返回住宿</div>
+            <div class="event-desc">難波 → 本町 → 弁天町</div>
+            <div class="actions"><a class="mapbtn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Bentencho+Station">Google Maps ↗</a><button class="deletebtn" onclick="deleteEvent(this)">刪除</button></div>
+          </div>
+        </div></div>
+    
+      <div class="addwrap"><button class="addbtn" onclick="openEditor(1)">＋ 新增景點</button></div>
+      <div class="editor" id="editor1">
+        <div class="editorgrid">
+          <input id="time1" placeholder="時間，如 14:30">
+          <input id="title1" placeholder="景點名稱">
+          <input id="icon1" placeholder="圖示，如 📍">
+          <input id="map1" placeholder="Google Maps 搜尋名稱">
+          <div></div><textarea id="desc1" placeholder="交通、停留時間或備註"></textarea>
+        </div>
+        <div class="editorbuttons">
+          <button class="cancelbtn" onclick="closeEditor(1)">取消</button>
+          <button class="savebtn" onclick="addEvent(1)">新增</button>
+        </div>
+      </div>
+</section>
+    <section class="day" id="day2">
+      <div class="dayhead"><div><span class="badge">DAY 2</span><h2>1/10（日）</h2></div><h3>海遊館・大阪城・天神橋筋</h3></div>
+      <div class="timeline" id="timeline2">
+        <div class="event">
+          <div class="time">08:15</div>
+          <div class="dot">🚇</div>
+          <div class="event-body">
+            <div class="event-title">住宿出發</div>
+            <div class="event-desc">弁天町 → Osaka Metro 中央線 → 大阪港</div>
+            <div class="actions"><a class="mapbtn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Osakako+Station">Google Maps ↗</a><button class="deletebtn" onclick="deleteEvent(this)">刪除</button></div>
+          </div>
+        </div>
+        <div class="event">
+          <div class="time">09:00</div>
+          <div class="dot">🐋</div>
+          <div class="event-body">
+            <div class="event-title">海遊館</div>
+            <div class="event-desc">預計停留至 12:00；2027 正式營業時間出發前再確認</div>
+            <div class="actions"><a class="mapbtn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Osaka+Aquarium+Kaiyukan">Google Maps ↗</a><button class="deletebtn" onclick="deleteEvent(this)">刪除</button></div>
+          </div>
+        </div>
+        <div class="event">
+          <div class="time">12:00</div>
+          <div class="dot">🍱</div>
+          <div class="event-body">
+            <div class="event-title">移動＋午餐</div>
+            <div class="event-desc">大阪港 → 森ノ宮，途中安排午餐</div>
+            <div class="actions"><a class="mapbtn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Morinomiya+Station">Google Maps ↗</a><button class="deletebtn" onclick="deleteEvent(this)">刪除</button></div>
+          </div>
+        </div>
+        <div class="event">
+          <div class="time">13:30</div>
+          <div class="dot">🏯</div>
+          <div class="event-body">
+            <div class="event-title">大阪城天守閣</div>
+            <div class="event-desc">預計停留至 16:00</div>
+            <div class="actions"><a class="mapbtn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Osaka+Castle">Google Maps ↗</a><button class="deletebtn" onclick="deleteEvent(this)">刪除</button></div>
+          </div>
+        </div>
+        <div class="event">
+          <div class="time">16:00</div>
+          <div class="dot">🚇</div>
+          <div class="event-body">
+            <div class="event-title">前往天神橋筋</div>
+            <div class="event-desc">大阪城區域 → 南森町／扇町</div>
+            <div class="actions"><a class="mapbtn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Tenjinbashisuji+Shopping+Street">Google Maps ↗</a><button class="deletebtn" onclick="deleteEvent(this)">刪除</button></div>
+          </div>
+        </div>
+        <div class="event">
+          <div class="time">17:00</div>
+          <div class="dot">🛍️</div>
+          <div class="event-body">
+            <div class="event-title">天神橋筋商店街</div>
+            <div class="event-desc">逛街＋晚餐，至約 19:30</div>
+            <div class="actions"><a class="mapbtn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Tenjinbashisuji+Shopping+Street">Google Maps ↗</a><button class="deletebtn" onclick="deleteEvent(this)">刪除</button></div>
+          </div>
+        </div>
+        <div class="event">
+          <div class="time">20:00</div>
+          <div class="dot">🚇</div>
+          <div class="event-body">
+            <div class="event-title">返回弁天町</div>
+            <div class="event-desc">預計 20:30 左右回住宿</div>
+            <div class="actions"><a class="mapbtn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Bentencho+Station">Google Maps ↗</a><button class="deletebtn" onclick="deleteEvent(this)">刪除</button></div>
+          </div>
+        </div></div>
+    
+      <div class="addwrap"><button class="addbtn" onclick="openEditor(2)">＋ 新增景點</button></div>
+      <div class="editor" id="editor2">
+        <div class="editorgrid">
+          <input id="time2" placeholder="時間，如 14:30">
+          <input id="title2" placeholder="景點名稱">
+          <input id="icon2" placeholder="圖示，如 📍">
+          <input id="map2" placeholder="Google Maps 搜尋名稱">
+          <div></div><textarea id="desc2" placeholder="交通、停留時間或備註"></textarea>
+        </div>
+        <div class="editorbuttons">
+          <button class="cancelbtn" onclick="closeEditor(2)">取消</button>
+          <button class="savebtn" onclick="addEvent(2)">新增</button>
+        </div>
+      </div>
+</section>
+    <section class="day" id="day3">
+      <div class="dayhead"><div><span class="badge">DAY 3</span><h2>1/11（一）</h2></div><h3>奈良一日遊</h3></div>
+      <div class="timeline" id="timeline3">
+        <div class="event">
+          <div class="time">07:30</div>
+          <div class="dot">🚃</div>
+          <div class="event-body">
+            <div class="event-title">弁天町出發</div>
+            <div class="event-desc">JR 大阪環狀線 → 鶴橋 → 近鐵奈良線 → 近鐵奈良</div>
+            <div class="actions"><a class="mapbtn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Kintetsu+Nara+Station">Google Maps ↗</a><button class="deletebtn" onclick="deleteEvent(this)">刪除</button></div>
+          </div>
+        </div>
+        <div class="event">
+          <div class="time">09:00</div>
+          <div class="dot">🦌</div>
+          <div class="event-body">
+            <div class="event-title">奈良公園</div>
+            <div class="event-desc">散步看鹿，往東大寺方向</div>
+            <div class="actions"><a class="mapbtn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Nara+Park">Google Maps ↗</a><button class="deletebtn" onclick="deleteEvent(this)">刪除</button></div>
+          </div>
+        </div>
+        <div class="event">
+          <div class="time">10:00</div>
+          <div class="dot">🛕</div>
+          <div class="event-body">
+            <div class="event-title">東大寺</div>
+            <div class="event-desc">大佛殿，預計至 12:00</div>
+            <div class="actions"><a class="mapbtn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Todaiji+Temple">Google Maps ↗</a><button class="deletebtn" onclick="deleteEvent(this)">刪除</button></div>
+          </div>
+        </div>
+        <div class="event">
+          <div class="time">12:00</div>
+          <div class="dot">🍱</div>
+          <div class="event-body">
+            <div class="event-title">午餐</div>
+            <div class="event-desc">奈良公園／東大寺周邊</div>
+            <div class="actions"><a class="mapbtn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Todaiji+Temple">Google Maps ↗</a><button class="deletebtn" onclick="deleteEvent(this)">刪除</button></div>
+          </div>
+        </div>
+        <div class="event">
+          <div class="time">13:00</div>
+          <div class="dot">🏛️</div>
+          <div class="event-body">
+            <div class="event-title">奈良春日野國際論壇 甍 I・RA・KA</div>
+            <div class="event-desc">預計停留約 1 小時</div>
+            <div class="actions"><a class="mapbtn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=I-RA-KA+Nara+Kasugano+International+Forum">Google Maps ↗</a><button class="deletebtn" onclick="deleteEvent(this)">刪除</button></div>
+          </div>
+        </div>
+        <div class="event">
+          <div class="time">14:10</div>
+          <div class="dot">🍮</div>
+          <div class="event-body">
+            <div class="event-title">大佛布丁</div>
+            <div class="event-desc">まほろば大仏プリン本舗 東大寺門前夢風ひろば店</div>
+            <div class="actions"><a class="mapbtn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Mahoroba+Daibutsu+Pudding+Todaiji">Google Maps ↗</a><button class="deletebtn" onclick="deleteEvent(this)">刪除</button></div>
+          </div>
+        </div>
+        <div class="event">
+          <div class="time">15:00</div>
+          <div class="dot">⛩️</div>
+          <div class="event-body">
+            <div class="event-title">春日大社・奈良公園</div>
+            <div class="event-desc">預計至 16:30</div>
+            <div class="actions"><a class="mapbtn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Kasuga+Taisha">Google Maps ↗</a><button class="deletebtn" onclick="deleteEvent(this)">刪除</button></div>
+          </div>
+        </div>
+        <div class="event">
+          <div class="time">17:00</div>
+          <div class="dot">🚃</div>
+          <div class="event-body">
+            <div class="event-title">返回大阪</div>
+            <div class="event-desc">近鐵奈良 → 鶴橋 → JR → 弁天町，約 18:30 回住宿</div>
+            <div class="actions"><a class="mapbtn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Bentencho+Station">Google Maps ↗</a><button class="deletebtn" onclick="deleteEvent(this)">刪除</button></div>
+          </div>
+        </div></div>
+    
+      <div class="addwrap"><button class="addbtn" onclick="openEditor(3)">＋ 新增景點</button></div>
+      <div class="editor" id="editor3">
+        <div class="editorgrid">
+          <input id="time3" placeholder="時間，如 14:30">
+          <input id="title3" placeholder="景點名稱">
+          <input id="icon3" placeholder="圖示，如 📍">
+          <input id="map3" placeholder="Google Maps 搜尋名稱">
+          <div></div><textarea id="desc3" placeholder="交通、停留時間或備註"></textarea>
+        </div>
+        <div class="editorbuttons">
+          <button class="cancelbtn" onclick="closeEditor(3)">取消</button>
+          <button class="savebtn" onclick="addEvent(3)">新增</button>
+        </div>
+      </div>
+</section>
+    <section class="day" id="day4">
+      <div class="dayhead"><div><span class="badge">DAY 4</span><h2>1/12（二）</h2></div><h3>Universal Studios Japan</h3></div>
+      <div class="timeline" id="timeline4">
+        <div class="event">
+          <div class="time">06:45</div>
+          <div class="dot">🚃</div>
+          <div class="event-body">
+            <div class="event-title">住宿出發</div>
+            <div class="event-desc">弁天町 → 西九条 → JR ゆめ咲線 → Universal City</div>
+            <div class="actions"><a class="mapbtn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Universal+City+Station+Osaka">Google Maps ↗</a><button class="deletebtn" onclick="deleteEvent(this)">刪除</button></div>
+          </div>
+        </div>
+        <div class="event">
+          <div class="time">07:20</div>
+          <div class="dot">🎟️</div>
+          <div class="event-body">
+            <div class="event-title">USJ 提早排隊</div>
+            <div class="event-desc">不要等表定開園才抵達</div>
+            <div class="actions"><a class="mapbtn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Universal+Studios+Japan">Google Maps ↗</a><button class="deletebtn" onclick="deleteEvent(this)">刪除</button></div>
+          </div>
+        </div>
+        <div class="event">
+          <div class="time">開園</div>
+          <div class="dot">🎢</div>
+          <div class="event-body">
+            <div class="event-title">Universal Studios Japan 全天</div>
+            <div class="event-desc">任天堂世界、咚奇剛、哈利波特、飛天翼龍、Hollywood Dream、小小兵</div>
+            <div class="actions"><a class="mapbtn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Universal+Studios+Japan">Google Maps ↗</a><button class="deletebtn" onclick="deleteEvent(this)">刪除</button></div>
+          </div>
+        </div>
+        <div class="event">
+          <div class="time">20:30</div>
+          <div class="dot">🚃</div>
+          <div class="event-body">
+            <div class="event-title">準備返回住宿</div>
+            <div class="event-desc">Universal City → 西九条 → 弁天町；依實際閉園時間調整</div>
+            <div class="actions"><a class="mapbtn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Bentencho+Station">Google Maps ↗</a><button class="deletebtn" onclick="deleteEvent(this)">刪除</button></div>
+          </div>
+        </div></div>
+    
+      <div class="addwrap"><button class="addbtn" onclick="openEditor(4)">＋ 新增景點</button></div>
+      <div class="editor" id="editor4">
+        <div class="editorgrid">
+          <input id="time4" placeholder="時間，如 14:30">
+          <input id="title4" placeholder="景點名稱">
+          <input id="icon4" placeholder="圖示，如 📍">
+          <input id="map4" placeholder="Google Maps 搜尋名稱">
+          <div></div><textarea id="desc4" placeholder="交通、停留時間或備註"></textarea>
+        </div>
+        <div class="editorbuttons">
+          <button class="cancelbtn" onclick="closeEditor(4)">取消</button>
+          <button class="savebtn" onclick="addEvent(4)">新增</button>
+        </div>
+      </div>
+</section>
+    <section class="day" id="day5">
+      <div class="dayhead"><div><span class="badge">DAY 5</span><h2>1/13（三）</h2></div><h3>京都・伏見稻荷・清水寺</h3></div>
+      <div class="timeline" id="timeline5">
+        <div class="event">
+          <div class="time">06:30</div>
+          <div class="dot">🚃</div>
+          <div class="event-body">
+            <div class="event-title">弁天町出發</div>
+            <div class="event-desc">弁天町 → 大阪 → 京都 → JR 奈良線 → 稻荷</div>
+            <div class="actions"><a class="mapbtn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Inari+Station+Kyoto">Google Maps ↗</a><button class="deletebtn" onclick="deleteEvent(this)">刪除</button></div>
+          </div>
+        </div>
+        <div class="event">
+          <div class="time">08:00</div>
+          <div class="dot">⛩️</div>
+          <div class="event-body">
+            <div class="event-title">伏見稻荷大社</div>
+            <div class="event-desc">千本鳥居，預計至 10:00</div>
+            <div class="actions"><a class="mapbtn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Fushimi+Inari+Taisha">Google Maps ↗</a><button class="deletebtn" onclick="deleteEvent(this)">刪除</button></div>
+          </div>
+        </div>
+        <div class="event">
+          <div class="time">10:00</div>
+          <div class="dot">🚃</div>
+          <div class="event-body">
+            <div class="event-title">前往清水寺</div>
+            <div class="event-desc">京阪伏見稻荷 → 清水五条，再步行上坡</div>
+            <div class="actions"><a class="mapbtn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Kiyomizugojo+Station">Google Maps ↗</a><button class="deletebtn" onclick="deleteEvent(this)">刪除</button></div>
+          </div>
+        </div>
+        <div class="event">
+          <div class="time">11:00</div>
+          <div class="dot">🛕</div>
+          <div class="event-body">
+            <div class="event-title">清水寺</div>
+            <div class="event-desc">預計至 13:00</div>
+            <div class="actions"><a class="mapbtn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Kiyomizu-dera">Google Maps ↗</a><button class="deletebtn" onclick="deleteEvent(this)">刪除</button></div>
+          </div>
+        </div>
+        <div class="event">
+          <div class="time">13:00</div>
+          <div class="dot">🏘️</div>
+          <div class="event-body">
+            <div class="event-title">三年坂・二年坂・八坂塔</div>
+            <div class="event-desc">邊走邊吃午餐，預計至 15:30</div>
+            <div class="actions"><a class="mapbtn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Sannenzaka+Kyoto">Google Maps ↗</a><button class="deletebtn" onclick="deleteEvent(this)">刪除</button></div>
+          </div>
+        </div>
+        <div class="event">
+          <div class="time">15:30</div>
+          <div class="dot">⛩️</div>
+          <div class="event-body">
+            <div class="event-title">八坂神社・花見小路・祇園</div>
+            <div class="event-desc">步行遊覽至約 17:30</div>
+            <div class="actions"><a class="mapbtn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Gion+Kyoto">Google Maps ↗</a><button class="deletebtn" onclick="deleteEvent(this)">刪除</button></div>
+          </div>
+        </div>
+        <div class="event">
+          <div class="time">17:30</div>
+          <div class="dot">🍱</div>
+          <div class="event-body">
+            <div class="event-title">京都晚餐／自由活動</div>
+            <div class="event-desc">祇園附近</div>
+            <div class="actions"><a class="mapbtn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Gion+Kyoto">Google Maps ↗</a><button class="deletebtn" onclick="deleteEvent(this)">刪除</button></div>
+          </div>
+        </div>
+        <div class="event">
+          <div class="time">19:00</div>
+          <div class="dot">🚃</div>
+          <div class="event-body">
+            <div class="event-title">返回大阪</div>
+            <div class="event-desc">依當天位置選京阪或 JR，約 20:30 回住宿</div>
+            <div class="actions"><a class="mapbtn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Bentencho+Station">Google Maps ↗</a><button class="deletebtn" onclick="deleteEvent(this)">刪除</button></div>
+          </div>
+        </div></div>
+    
+      <div class="addwrap"><button class="addbtn" onclick="openEditor(5)">＋ 新增景點</button></div>
+      <div class="editor" id="editor5">
+        <div class="editorgrid">
+          <input id="time5" placeholder="時間，如 14:30">
+          <input id="title5" placeholder="景點名稱">
+          <input id="icon5" placeholder="圖示，如 📍">
+          <input id="map5" placeholder="Google Maps 搜尋名稱">
+          <div></div><textarea id="desc5" placeholder="交通、停留時間或備註"></textarea>
+        </div>
+        <div class="editorbuttons">
+          <button class="cancelbtn" onclick="closeEditor(5)">取消</button>
+          <button class="savebtn" onclick="addEvent(5)">新增</button>
+        </div>
+      </div>
+</section>
+    <section class="day" id="day6">
+      <div class="dayhead"><div><span class="badge">DAY 6</span><h2>1/14（四）</h2></div><h3>勝尾寺・梅田</h3></div>
+      <div class="timeline" id="timeline6">
+        <div class="event">
+          <div class="time">07:30</div>
+          <div class="dot">🚇</div>
+          <div class="event-body">
+            <div class="event-title">弁天町出發</div>
+            <div class="event-desc">弁天町 → 本町 → 御堂筋線／北大阪急行 → 箕面萱野</div>
+            <div class="actions"><a class="mapbtn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Minoh-kayano+Station">Google Maps ↗</a><button class="deletebtn" onclick="deleteEvent(this)">刪除</button></div>
+          </div>
+        </div>
+        <div class="event">
+          <div class="time">09:00</div>
+          <div class="dot">🚌</div>
+          <div class="event-body">
+            <div class="event-title">前往勝尾寺</div>
+            <div class="event-desc">箕面萱野 → 勝尾寺巴士；2027 班表公布後再校正</div>
+            <div class="actions"><a class="mapbtn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Katsuoji+Temple">Google Maps ↗</a><button class="deletebtn" onclick="deleteEvent(this)">刪除</button></div>
+          </div>
+        </div>
+        <div class="event">
+          <div class="time">09:30</div>
+          <div class="dot">🔴</div>
+          <div class="event-body">
+            <div class="event-title">勝尾寺</div>
+            <div class="event-desc">達摩寺，預計至 12:00</div>
+            <div class="actions"><a class="mapbtn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Katsuoji+Temple">Google Maps ↗</a><button class="deletebtn" onclick="deleteEvent(this)">刪除</button></div>
+          </div>
+        </div>
+        <div class="event">
+          <div class="time">12:00</div>
+          <div class="dot">🚌</div>
+          <div class="event-body">
+            <div class="event-title">前往梅田</div>
+            <div class="event-desc">勝尾寺 → 箕面萱野 → 北大阪急行／御堂筋線 → 梅田</div>
+            <div class="actions"><a class="mapbtn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Umeda+Station+Osaka">Google Maps ↗</a><button class="deletebtn" onclick="deleteEvent(this)">刪除</button></div>
+          </div>
+        </div>
+        <div class="event">
+          <div class="time">13:30</div>
+          <div class="dot">🛍️</div>
+          <div class="event-body">
+            <div class="event-title">阪急梅田・Grand Front・大阪站</div>
+            <div class="event-desc">購物至約 17:30</div>
+            <div class="actions"><a class="mapbtn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Hankyu+Umeda+Main+Store">Google Maps ↗</a><button class="deletebtn" onclick="deleteEvent(this)">刪除</button></div>
+          </div>
+        </div>
+        <div class="event">
+          <div class="time">18:00</div>
+          <div class="dot">🥩</div>
+          <div class="event-body">
+            <div class="event-title">神戶あぶり牧場 本店</div>
+            <div class="event-desc">晚餐預計至 20:00</div>
+            <div class="actions"><a class="mapbtn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Kobe+Aburi+Bokujyo+Umeda">Google Maps ↗</a><button class="deletebtn" onclick="deleteEvent(this)">刪除</button></div>
+          </div>
+        </div>
+        <div class="event">
+          <div class="time">20:00</div>
+          <div class="dot">🚃</div>
+          <div class="event-body">
+            <div class="event-title">返回弁天町</div>
+            <div class="event-desc">大阪站 → JR 大阪環狀線 → 弁天町</div>
+            <div class="actions"><a class="mapbtn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Bentencho+Station">Google Maps ↗</a><button class="deletebtn" onclick="deleteEvent(this)">刪除</button></div>
+          </div>
+        </div></div>
+    
+      <div class="addwrap"><button class="addbtn" onclick="openEditor(6)">＋ 新增景點</button></div>
+      <div class="editor" id="editor6">
+        <div class="editorgrid">
+          <input id="time6" placeholder="時間，如 14:30">
+          <input id="title6" placeholder="景點名稱">
+          <input id="icon6" placeholder="圖示，如 📍">
+          <input id="map6" placeholder="Google Maps 搜尋名稱">
+          <div></div><textarea id="desc6" placeholder="交通、停留時間或備註"></textarea>
+        </div>
+        <div class="editorbuttons">
+          <button class="cancelbtn" onclick="closeEditor(6)">取消</button>
+          <button class="savebtn" onclick="addEvent(6)">新增</button>
+        </div>
+      </div>
+</section>
+    <section class="day" id="day7">
+      <div class="dayhead"><div><span class="badge">DAY 7</span><h2>1/15（五）</h2></div><h3>木津市場・大鳥大社・Akiba Kart</h3></div>
+      <div class="timeline" id="timeline7">
+        <div class="event">
+          <div class="time">06:30</div>
+          <div class="dot">🚇</div>
+          <div class="event-body">
+            <div class="event-title">住宿出發</div>
+            <div class="event-desc">弁天町 → 本町 → 大國町</div>
+            <div class="actions"><a class="mapbtn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Daikokucho+Station">Google Maps ↗</a><button class="deletebtn" onclick="deleteEvent(this)">刪除</button></div>
+          </div>
+        </div>
+        <div class="event">
+          <div class="time">07:00</div>
+          <div class="dot">🐟</div>
+          <div class="event-body">
+            <div class="event-title">木津市場＋早餐</div>
+            <div class="event-desc">早市，預計至 08:30</div>
+            <div class="actions"><a class="mapbtn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Osaka+Kizu+Wholesale+Market">Google Maps ↗</a><button class="deletebtn" onclick="deleteEvent(this)">刪除</button></div>
+          </div>
+        </div>
+        <div class="event">
+          <div class="time">08:30</div>
+          <div class="dot">🚃</div>
+          <div class="event-body">
+            <div class="event-title">前往大鳥大社</div>
+            <div class="event-desc">大國町 → 天王寺 → JR 阪和線 → 鳳，步行前往</div>
+            <div class="actions"><a class="mapbtn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Otori+Station+Osaka">Google Maps ↗</a><button class="deletebtn" onclick="deleteEvent(this)">刪除</button></div>
+          </div>
+        </div>
+        <div class="event">
+          <div class="time">09:30</div>
+          <div class="dot">⛩️</div>
+          <div class="event-body">
+            <div class="event-title">大鳥大社</div>
+            <div class="event-desc">預計至 10:30</div>
+            <div class="actions"><a class="mapbtn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Otori+Taisha">Google Maps ↗</a><button class="deletebtn" onclick="deleteEvent(this)">刪除</button></div>
+          </div>
+        </div>
+        <div class="event">
+          <div class="time">10:30</div>
+          <div class="dot">🚃</div>
+          <div class="event-body">
+            <div class="event-title">返回難波</div>
+            <div class="event-desc">鳳 → 天王寺 → 難波／大國町</div>
+            <div class="actions"><a class="mapbtn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Namba+Station+Osaka">Google Maps ↗</a><button class="deletebtn" onclick="deleteEvent(this)">刪除</button></div>
+          </div>
+        </div>
+        <div class="event">
+          <div class="time">11:30</div>
+          <div class="dot">🦁</div>
+          <div class="event-body">
+            <div class="event-title">難波八阪神社</div>
+            <div class="event-desc">巨大獅子殿，至約 12:10</div>
+            <div class="actions"><a class="mapbtn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Namba+Yasaka+Shrine">Google Maps ↗</a><button class="deletebtn" onclick="deleteEvent(this)">刪除</button></div>
+          </div>
+        </div>
+        <div class="event">
+          <div class="time">12:10</div>
+          <div class="dot">🍱</div>
+          <div class="event-body">
+            <div class="event-title">午餐＋前往新世界</div>
+            <div class="event-desc">步行／短程 Metro</div>
+            <div class="actions"><a class="mapbtn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Shinsekai+Osaka">Google Maps ↗</a><button class="deletebtn" onclick="deleteEvent(this)">刪除</button></div>
+          </div>
+        </div>
+        <div class="event">
+          <div class="time">13:00</div>
+          <div class="dot">🗼</div>
+          <div class="event-body">
+            <div class="event-title">通天閣・新世界</div>
+            <div class="event-desc">預計至 14:20</div>
+            <div class="actions"><a class="mapbtn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Tsutenkaku">Google Maps ↗</a><button class="deletebtn" onclick="deleteEvent(this)">刪除</button></div>
+          </div>
+        </div>
+        <div class="event">
+          <div class="time">14:20</div>
+          <div class="dot">🚶</div>
+          <div class="event-body">
+            <div class="event-title">前往 Akiba Kart</div>
+            <div class="event-desc">通天閣步行約 10～15 分鐘</div>
+            <div class="actions"><a class="mapbtn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Akiba+Kart+Osaka">Google Maps ↗</a><button class="deletebtn" onclick="deleteEvent(this)">刪除</button></div>
+          </div>
+        </div>
+        <div class="event">
+          <div class="time">15:00</div>
+          <div class="dot">🏎️</div>
+          <div class="event-body">
+            <div class="event-title">Akiba Kart Osaka</div>
+            <div class="event-desc">固定預留至 16:15；駕照文件請事先備妥</div>
+            <div class="actions"><a class="mapbtn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Akiba+Kart+Osaka">Google Maps ↗</a><button class="deletebtn" onclick="deleteEvent(this)">刪除</button></div>
+          </div>
+        </div>
+        <div class="event">
+          <div class="time">16:15</div>
+          <div class="dot">🚇</div>
+          <div class="event-body">
+            <div class="event-title">前往心齋橋</div>
+            <div class="event-desc">惠美須町 → 長堀橋／心齋橋</div>
+            <div class="actions"><a class="mapbtn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Shinsaibashi+PARCO">Google Maps ↗</a><button class="deletebtn" onclick="deleteEvent(this)">刪除</button></div>
+          </div>
+        </div>
+        <div class="event">
+          <div class="time">17:00</div>
+          <div class="dot">🛍️</div>
+          <div class="event-body">
+            <div class="event-title">心齋橋 PARCO</div>
+            <div class="event-desc">預計至 19:00</div>
+            <div class="actions"><a class="mapbtn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Shinsaibashi+PARCO">Google Maps ↗</a><button class="deletebtn" onclick="deleteEvent(this)">刪除</button></div>
+          </div>
+        </div>
+        <div class="event">
+          <div class="time">19:00</div>
+          <div class="dot">🚶</div>
+          <div class="event-body">
+            <div class="event-title">心齋橋筋 → 道頓堀</div>
+            <div class="event-desc">一路步行逛街</div>
+            <div class="actions"><a class="mapbtn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Dotonbori+Osaka">Google Maps ↗</a><button class="deletebtn" onclick="deleteEvent(this)">刪除</button></div>
+          </div>
+        </div>
+        <div class="event">
+          <div class="time">19:30</div>
+          <div class="dot">🥩</div>
+          <div class="event-body">
+            <div class="event-title">道頓堀晚餐</div>
+            <div class="event-desc">あぶりや 或 蟹道樂，二選一</div>
+            <div class="actions"><a class="mapbtn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Dotonbori+Osaka">Google Maps ↗</a><button class="deletebtn" onclick="deleteEvent(this)">刪除</button></div>
+          </div>
+        </div>
+        <div class="event">
+          <div class="time">21:00</div>
+          <div class="dot">🌃</div>
+          <div class="event-body">
+            <div class="event-title">道頓堀・金久右衛門</div>
+            <div class="event-desc">自由活動／宵夜至約 22:30</div>
+            <div class="actions"><a class="mapbtn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Dotonbori+Osaka">Google Maps ↗</a><button class="deletebtn" onclick="deleteEvent(this)">刪除</button></div>
+          </div>
+        </div>
+        <div class="event">
+          <div class="time">22:30</div>
+          <div class="dot">🚇</div>
+          <div class="event-body">
+            <div class="event-title">返回住宿</div>
+            <div class="event-desc">難波 → 本町 → 弁天町</div>
+            <div class="actions"><a class="mapbtn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Bentencho+Station">Google Maps ↗</a><button class="deletebtn" onclick="deleteEvent(this)">刪除</button></div>
+          </div>
+        </div></div>
+    
+      <div class="addwrap"><button class="addbtn" onclick="openEditor(7)">＋ 新增景點</button></div>
+      <div class="editor" id="editor7">
+        <div class="editorgrid">
+          <input id="time7" placeholder="時間，如 14:30">
+          <input id="title7" placeholder="景點名稱">
+          <input id="icon7" placeholder="圖示，如 📍">
+          <input id="map7" placeholder="Google Maps 搜尋名稱">
+          <div></div><textarea id="desc7" placeholder="交通、停留時間或備註"></textarea>
+        </div>
+        <div class="editorbuttons">
+          <button class="cancelbtn" onclick="closeEditor(7)">取消</button>
+          <button class="savebtn" onclick="addEvent(7)">新增</button>
+        </div>
+      </div>
+</section>
+    <section class="day" id="day8">
+      <div class="dayhead"><div><span class="badge">DAY 8</span><h2>1/16（六）</h2></div><h3>回台灣</h3></div>
+      <div class="timeline" id="timeline8">
+        <div class="event">
+          <div class="time">07:30</div>
+          <div class="dot">🍳</div>
+          <div class="event-body">
+            <div class="event-title">起床・早餐</div>
+            <div class="event-desc">最後整理行李</div>
+            <div class="actions"><a class="mapbtn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Bentencho+Station">Google Maps ↗</a><button class="deletebtn" onclick="deleteEvent(this)">刪除</button></div>
+          </div>
+        </div>
+        <div class="event">
+          <div class="time">09:30</div>
+          <div class="dot">🧳</div>
+          <div class="event-body">
+            <div class="event-title">Check-out</div>
+            <div class="event-desc">準備前往機場</div>
+            <div class="actions"><a class="mapbtn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Bentencho+Station">Google Maps ↗</a><button class="deletebtn" onclick="deleteEvent(this)">刪除</button></div>
+          </div>
+        </div>
+        <div class="event">
+          <div class="time">10:00</div>
+          <div class="dot">🚃</div>
+          <div class="event-body">
+            <div class="event-title">前往關西國際機場</div>
+            <div class="event-desc">弁天町 → KIX；當天依 NAVITIME 班次搭乘</div>
+            <div class="actions"><a class="mapbtn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Kansai+International+Airport">Google Maps ↗</a><button class="deletebtn" onclick="deleteEvent(this)">刪除</button></div>
+          </div>
+        </div>
+        <div class="event">
+          <div class="time">11:15</div>
+          <div class="dot">✈️</div>
+          <div class="event-body">
+            <div class="event-title">抵達 KIX</div>
+            <div class="event-desc">托運、安檢、出境、午餐、免稅店</div>
+            <div class="actions"><a class="mapbtn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Kansai+International+Airport">Google Maps ↗</a><button class="deletebtn" onclick="deleteEvent(this)">刪除</button></div>
+          </div>
+        </div>
+        <div class="event">
+          <div class="time">14:30</div>
+          <div class="dot">🛫</div>
+          <div class="event-body">
+            <div class="event-title">起飛回台灣</div>
+            <div class="event-desc"></div>
+            <div class="actions"><a class="mapbtn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Kansai+International+Airport">Google Maps ↗</a><button class="deletebtn" onclick="deleteEvent(this)">刪除</button></div>
+          </div>
+        </div></div>
+    
+      <div class="addwrap"><button class="addbtn" onclick="openEditor(8)">＋ 新增景點</button></div>
+      <div class="editor" id="editor8">
+        <div class="editorgrid">
+          <input id="time8" placeholder="時間，如 14:30">
+          <input id="title8" placeholder="景點名稱">
+          <input id="icon8" placeholder="圖示，如 📍">
+          <input id="map8" placeholder="Google Maps 搜尋名稱">
+          <div></div><textarea id="desc8" placeholder="交通、停留時間或備註"></textarea>
+        </div>
+        <div class="editorbuttons">
+          <button class="cancelbtn" onclick="closeEditor(8)">取消</button>
+          <button class="savebtn" onclick="addEvent(8)">新增</button>
+        </div>
+      </div>
+</section>
+<div class="note"><b>使用方式：</b>時間是目前的行程規劃基準。2027 年正式電車／巴士班表、USJ 開園時間、各景點冬季營業時間公布後，再做最後校正。每個地點都可直接按 Google Maps 開啟導航。</div>
+</main>
+<div class="footer">住宿基地：5-chōme-2-5 Namiyoke, Osaka 552-0001。勝尾寺為本行程唯一需要以巴士銜接為主的景點；其餘以 JR、Osaka Metro、近鐵、京阪與步行安排。</div>
+<script type="module">
+import {initializeApp} from "https://www.gstatic.com/firebasejs/12.4.0/firebase-app.js";
+import {getFirestore,doc,getDoc,setDoc,onSnapshot} from "https://www.gstatic.com/firebasejs/12.4.0/firebase-firestore.js";
+import {getAuth,GoogleAuthProvider,signInWithPopup,signOut,onAuthStateChanged} from "https://www.gstatic.com/firebasejs/12.4.0/firebase-auth.js";
+const firebaseConfig={apiKey:"AIzaSyBjpkSLhZxPLL6_OuQ0k1inCPCHqmRTWU0",authDomain:"kansai-trip-2027-e2b7d.firebaseapp.com",projectId:"kansai-trip-2027-e2b7d",storageBucket:"kansai-trip-2027-e2b7d.firebasestorage.app",messagingSenderId:"149664471861",appId:"1:149664471861:web:6d0208ea054ba03a454a7c"};
+const app=initializeApp(firebaseConfig),db=getFirestore(app),auth=getAuth(app),tripRef=doc(db,"sharedTrips","kansai-2027");
+let user=null,remote=false;
+const esc=v=>String(v).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const capture=()=>Object.fromEntries([...Array(8)].map((_,i)=>[i+1,document.getElementById('timeline'+(i+1)).innerHTML]));
+async function save(){if(!remote&&user)await setDoc(tripRef,{days:capture(),updatedAt:Date.now(),updatedBy:user.email||user.uid},{merge:true})}
+function editing(on){document.querySelectorAll('.addwrap,.deletebtn').forEach(e=>e.style.display=on?'':'none')}
+window.openEditor=n=>document.getElementById('editor'+n).classList.add('open');window.closeEditor=n=>document.getElementById('editor'+n).classList.remove('open');
+window.addEvent=async n=>{if(!user)return alert('請先用 Google 登入');let time=document.getElementById('time'+n).value.trim()||'未定',title=document.getElementById('title'+n).value.trim(),icon=document.getElementById('icon'+n).value.trim()||'📍',map=document.getElementById('map'+n).value.trim()||title,desc=document.getElementById('desc'+n).value.trim();if(!title)return alert('請輸入景點名稱');let e=document.createElement('div');e.className='event';e.innerHTML=`<div class="time">${esc(time)}</div><div class="dot">${esc(icon)}</div><div class="event-body"><div class="event-title">${esc(title)}</div><div class="event-desc">${esc(desc)}</div><div class="actions"><a class="mapbtn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(map)}">Google Maps ↗</a><button class="deletebtn" onclick="deleteEvent(this)">刪除</button></div></div>`;document.getElementById('timeline'+n).appendChild(e);['time','title','icon','map','desc'].forEach(k=>document.getElementById(k+n).value='');window.closeEditor(n);await save()};
+window.deleteEvent=async b=>{if(!user)return alert('請先用 Google 登入');if(confirm('確定要刪除這個行程嗎？')){b.closest('.event').remove();await save()}};
+window.showDay=n=>{document.querySelectorAll('.day').forEach(x=>x.classList.remove('active'));document.querySelectorAll('.nav button').forEach(x=>x.classList.remove('active'));document.getElementById('day'+n).classList.add('active');document.getElementById('b'+n).classList.add('active');localStorage.setItem('tripDay',n)};
+const initial=capture(),bar=document.createElement('div');bar.style.cssText='max-width:900px;margin:14px auto 0;padding:0 16px;display:flex;justify-content:flex-end;align-items:center;gap:9px;font-size:13px';bar.innerHTML='<span id="authState">尚未登入</span><button id="authBtn" style="border:0;border-radius:9px;padding:9px 12px;background:#111;color:#fff;cursor:pointer">Google 登入</button>';document.querySelector('.hero').after(bar);
+onAuthStateChanged(auth,async u=>{user=u;let l=document.getElementById('authState'),b=document.getElementById('authBtn');if(u){l.textContent=u.displayName||u.email||'已登入';b.textContent='登出';b.onclick=()=>signOut(auth);editing(true);let x=await getDoc(tripRef);if(!x.exists())await setDoc(tripRef,{days:initial,updatedAt:Date.now(),updatedBy:u.email||u.uid})}else{l.textContent='尚未登入';b.textContent='Google 登入';b.onclick=()=>signInWithPopup(auth,new GoogleAuthProvider()).catch(e=>alert('登入失敗：'+e.message));editing(false)}});
+onSnapshot(tripRef,x=>{if(!x.exists()||!x.data().days)return;remote=true;let d=x.data().days;for(let i=1;i<=8;i++)if(d[i])document.getElementById('timeline'+i).innerHTML=d[i];remote=false;editing(!!user)});
+window.showDay(parseInt(localStorage.getItem('tripDay')||'1'));
+</script>
+</body></html>
