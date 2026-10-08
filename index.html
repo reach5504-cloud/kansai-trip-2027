@@ -21,7 +21,7 @@ main{max-width:900px;margin:0 auto;padding:22px 16px 50px} .day{display:none} .d
 .time{font-weight:700;font-size:13px;padding-top:3px} .dot{font-size:19px;text-align:center} .event-title{font-weight:750;font-size:16px} .event-desc{font-size:13px;color:var(--muted);line-height:1.6;margin:5px 0 9px}
 .mapbtn{display:inline-block;text-decoration:none;color:#111;background:#f0f0ed;padding:6px 9px;border-radius:8px;font-size:11px;font-weight:650}
 .actions{display:flex;gap:7px;flex-wrap:wrap}
-.deletebtn{border:0;background:#f5e8e8;color:#8a2424;padding:6px 9px;border-radius:8px;font-size:11px;font-weight:650;cursor:pointer}
+.deletebtn{border:0;background:#f5e8e8;color:#8a2424;padding:6px 9px;border-radius:8px;font-size:11px;font-weight:650;cursor:pointer}.editbtn{border:0;background:#e9eef7;color:#243d68;padding:6px 9px;border-radius:8px;font-size:11px;font-weight:650;cursor:pointer}
 .addwrap{margin:14px 0 22px;display:flex;justify-content:flex-end}
 .addbtn{border:0;background:#111;color:#fff;border-radius:10px;padding:10px 14px;font-weight:750;cursor:pointer}
 .editor{display:none;background:#fff;border:1px solid var(--line);border-radius:16px;padding:16px;margin:12px 0 20px}
@@ -57,7 +57,7 @@ main{max-width:900px;margin:0 auto;padding:22px 16px 50px} .day{display:none} .d
           <div class="event-body">
             <div class="event-title">抵達關西國際機場 KIX</div>
             <div class="event-desc">入境、領行李，預留約 1～1.5 小時</div>
-            <div class="actions"><a class="mapbtn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Kansai+International+Airport">Google Maps ↗</a><button class="deletebtn" onclick="deleteEvent(this)">刪除</button></div>
+            <div class="actions"><a class="mapbtn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Kansai+International+Airport">Google Maps ↗</a><button class="editbtn" onclick="editEvent(this)">編輯</button><button class="deletebtn" onclick="deleteEvent(this)">刪除</button></div>
           </div>
         </div>
         <div class="event">
@@ -66,7 +66,7 @@ main{max-width:900px;margin:0 auto;padding:22px 16px 50px} .day{display:none} .d
           <div class="event-body">
             <div class="event-title">前往弁天町住宿</div>
             <div class="event-desc">關西機場 → JR → 弁天町；依當日 NAVITIME / Google Maps 班次搭乘</div>
-            <div class="actions"><a class="mapbtn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Bentencho+Station">Google Maps ↗</a><button class="deletebtn" onclick="deleteEvent(this)">刪除</button></div>
+            <div class="actions"><a class="mapbtn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Bentencho+Station">Google Maps ↗</a><button class="editbtn" onclick="editEvent(this)">編輯</button><button class="deletebtn" onclick="deleteEvent(this)">刪除</button></div>
           </div>
         </div>
         <div class="event">
@@ -75,7 +75,7 @@ main{max-width:900px;margin:0 auto;padding:22px 16px 50px} .day{display:none} .d
           <div class="event-body">
             <div class="event-title">住宿 Check-in</div>
             <div class="event-desc">5-chōme-2-5 Namiyoke, Osaka 552-0001</div>
-            <div class="actions"><a class="mapbtn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=5-chōme-2-5+Namiyoke+Osaka">Google Maps ↗</a><button class="deletebtn" onclick="deleteEvent(this)">刪除</button></div>
+            <div class="actions"><a class="mapbtn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=5-chōme-2-5+Namiyoke+Osaka">Google Maps ↗</a><button class="editbtn" onclick="editEvent(this)">編輯</button><button class="deletebtn" onclick="deleteEvent(this)">刪除</button></div>
           </div>
         </div>
         <div class="event">
@@ -84,7 +84,7 @@ main{max-width:900px;margin:0 auto;padding:22px 16px 50px} .day{display:none} .d
           <div class="event-body">
             <div class="event-title">前往難波</div>
             <div class="event-desc">弁天町 → 本町 → 難波</div>
-            <div class="actions"><a class="mapbtn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Namba+Station+Osaka">Google Maps ↗</a><button class="deletebtn" onclick="deleteEvent(this)">刪除</button></div>
+            <div class="actions"><a class="mapbtn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Namba+Station+Osaka">Google Maps ↗</a><button class="editbtn" onclick="editEvent(this)">編輯</button><button class="deletebtn" onclick="deleteEvent(this)">刪除</button></div>
           </div>
         </div>
         <div class="event">
@@ -93,7 +93,7 @@ main{max-width:900px;margin:0 auto;padding:22px 16px 50px} .day{display:none} .d
           <div class="event-body">
             <div class="event-title">道頓堀・金龍拉麵</div>
             <div class="event-desc">第一晚輕鬆逛固力果、戎橋、道頓堀</div>
-            <div class="actions"><a class="mapbtn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Dotonbori+Osaka">Google Maps ↗</a><button class="deletebtn" onclick="deleteEvent(this)">刪除</button></div>
+            <div class="actions"><a class="mapbtn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Dotonbori+Osaka">Google Maps ↗</a><button class="editbtn" onclick="editEvent(this)">編輯</button><button class="deletebtn" onclick="deleteEvent(this)">刪除</button></div>
           </div>
         </div>
         <div class="event">
@@ -102,7 +102,7 @@ main{max-width:900px;margin:0 auto;padding:22px 16px 50px} .day{display:none} .d
           <div class="event-body">
             <div class="event-title">返回住宿</div>
             <div class="event-desc">難波 → 本町 → 弁天町</div>
-            <div class="actions"><a class="mapbtn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Bentencho+Station">Google Maps ↗</a><button class="deletebtn" onclick="deleteEvent(this)">刪除</button></div>
+            <div class="actions"><a class="mapbtn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Bentencho+Station">Google Maps ↗</a><button class="editbtn" onclick="editEvent(this)">編輯</button><button class="deletebtn" onclick="deleteEvent(this)">刪除</button></div>
           </div>
         </div></div>
     
@@ -130,7 +130,7 @@ main{max-width:900px;margin:0 auto;padding:22px 16px 50px} .day{display:none} .d
           <div class="event-body">
             <div class="event-title">住宿出發</div>
             <div class="event-desc">弁天町 → Osaka Metro 中央線 → 大阪港</div>
-            <div class="actions"><a class="mapbtn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Osakako+Station">Google Maps ↗</a><button class="deletebtn" onclick="deleteEvent(this)">刪除</button></div>
+            <div class="actions"><a class="mapbtn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Osakako+Station">Google Maps ↗</a><button class="editbtn" onclick="editEvent(this)">編輯</button><button class="deletebtn" onclick="deleteEvent(this)">刪除</button></div>
           </div>
         </div>
         <div class="event">
@@ -139,7 +139,7 @@ main{max-width:900px;margin:0 auto;padding:22px 16px 50px} .day{display:none} .d
           <div class="event-body">
             <div class="event-title">海遊館</div>
             <div class="event-desc">預計停留至 12:00；2027 正式營業時間出發前再確認</div>
-            <div class="actions"><a class="mapbtn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Osaka+Aquarium+Kaiyukan">Google Maps ↗</a><button class="deletebtn" onclick="deleteEvent(this)">刪除</button></div>
+            <div class="actions"><a class="mapbtn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Osaka+Aquarium+Kaiyukan">Google Maps ↗</a><button class="editbtn" onclick="editEvent(this)">編輯</button><button class="deletebtn" onclick="deleteEvent(this)">刪除</button></div>
           </div>
         </div>
         <div class="event">
@@ -148,7 +148,7 @@ main{max-width:900px;margin:0 auto;padding:22px 16px 50px} .day{display:none} .d
           <div class="event-body">
             <div class="event-title">移動＋午餐</div>
             <div class="event-desc">大阪港 → 森ノ宮，途中安排午餐</div>
-            <div class="actions"><a class="mapbtn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Morinomiya+Station">Google Maps ↗</a><button class="deletebtn" onclick="deleteEvent(this)">刪除</button></div>
+            <div class="actions"><a class="mapbtn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Morinomiya+Station">Google Maps ↗</a><button class="editbtn" onclick="editEvent(this)">編輯</button><button class="deletebtn" onclick="deleteEvent(this)">刪除</button></div>
           </div>
         </div>
         <div class="event">
@@ -157,7 +157,7 @@ main{max-width:900px;margin:0 auto;padding:22px 16px 50px} .day{display:none} .d
           <div class="event-body">
             <div class="event-title">大阪城天守閣</div>
             <div class="event-desc">預計停留至 16:00</div>
-            <div class="actions"><a class="mapbtn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Osaka+Castle">Google Maps ↗</a><button class="deletebtn" onclick="deleteEvent(this)">刪除</button></div>
+            <div class="actions"><a class="mapbtn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Osaka+Castle">Google Maps ↗</a><button class="editbtn" onclick="editEvent(this)">編輯</button><button class="deletebtn" onclick="deleteEvent(this)">刪除</button></div>
           </div>
         </div>
         <div class="event">
@@ -166,7 +166,7 @@ main{max-width:900px;margin:0 auto;padding:22px 16px 50px} .day{display:none} .d
           <div class="event-body">
             <div class="event-title">前往天神橋筋</div>
             <div class="event-desc">大阪城區域 → 南森町／扇町</div>
-            <div class="actions"><a class="mapbtn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Tenjinbashisuji+Shopping+Street">Google Maps ↗</a><button class="deletebtn" onclick="deleteEvent(this)">刪除</button></div>
+            <div class="actions"><a class="mapbtn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Tenjinbashisuji+Shopping+Street">Google Maps ↗</a><button class="editbtn" onclick="editEvent(this)">編輯</button><button class="deletebtn" onclick="deleteEvent(this)">刪除</button></div>
           </div>
         </div>
         <div class="event">
@@ -175,7 +175,7 @@ main{max-width:900px;margin:0 auto;padding:22px 16px 50px} .day{display:none} .d
           <div class="event-body">
             <div class="event-title">天神橋筋商店街</div>
             <div class="event-desc">逛街＋晚餐，至約 19:30</div>
-            <div class="actions"><a class="mapbtn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Tenjinbashisuji+Shopping+Street">Google Maps ↗</a><button class="deletebtn" onclick="deleteEvent(this)">刪除</button></div>
+            <div class="actions"><a class="mapbtn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Tenjinbashisuji+Shopping+Street">Google Maps ↗</a><button class="editbtn" onclick="editEvent(this)">編輯</button><button class="deletebtn" onclick="deleteEvent(this)">刪除</button></div>
           </div>
         </div>
         <div class="event">
@@ -184,7 +184,7 @@ main{max-width:900px;margin:0 auto;padding:22px 16px 50px} .day{display:none} .d
           <div class="event-body">
             <div class="event-title">返回弁天町</div>
             <div class="event-desc">預計 20:30 左右回住宿</div>
-            <div class="actions"><a class="mapbtn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Bentencho+Station">Google Maps ↗</a><button class="deletebtn" onclick="deleteEvent(this)">刪除</button></div>
+            <div class="actions"><a class="mapbtn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Bentencho+Station">Google Maps ↗</a><button class="editbtn" onclick="editEvent(this)">編輯</button><button class="deletebtn" onclick="deleteEvent(this)">刪除</button></div>
           </div>
         </div></div>
     
@@ -212,7 +212,7 @@ main{max-width:900px;margin:0 auto;padding:22px 16px 50px} .day{display:none} .d
           <div class="event-body">
             <div class="event-title">弁天町出發</div>
             <div class="event-desc">JR 大阪環狀線 → 鶴橋 → 近鐵奈良線 → 近鐵奈良</div>
-            <div class="actions"><a class="mapbtn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Kintetsu+Nara+Station">Google Maps ↗</a><button class="deletebtn" onclick="deleteEvent(this)">刪除</button></div>
+            <div class="actions"><a class="mapbtn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Kintetsu+Nara+Station">Google Maps ↗</a><button class="editbtn" onclick="editEvent(this)">編輯</button><button class="deletebtn" onclick="deleteEvent(this)">刪除</button></div>
           </div>
         </div>
         <div class="event">
@@ -221,7 +221,7 @@ main{max-width:900px;margin:0 auto;padding:22px 16px 50px} .day{display:none} .d
           <div class="event-body">
             <div class="event-title">奈良公園</div>
             <div class="event-desc">散步看鹿，往東大寺方向</div>
-            <div class="actions"><a class="mapbtn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Nara+Park">Google Maps ↗</a><button class="deletebtn" onclick="deleteEvent(this)">刪除</button></div>
+            <div class="actions"><a class="mapbtn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Nara+Park">Google Maps ↗</a><button class="editbtn" onclick="editEvent(this)">編輯</button><button class="deletebtn" onclick="deleteEvent(this)">刪除</button></div>
           </div>
         </div>
         <div class="event">
@@ -230,7 +230,7 @@ main{max-width:900px;margin:0 auto;padding:22px 16px 50px} .day{display:none} .d
           <div class="event-body">
             <div class="event-title">東大寺</div>
             <div class="event-desc">大佛殿，預計至 12:00</div>
-            <div class="actions"><a class="mapbtn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Todaiji+Temple">Google Maps ↗</a><button class="deletebtn" onclick="deleteEvent(this)">刪除</button></div>
+            <div class="actions"><a class="mapbtn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Todaiji+Temple">Google Maps ↗</a><button class="editbtn" onclick="editEvent(this)">編輯</button><button class="deletebtn" onclick="deleteEvent(this)">刪除</button></div>
           </div>
         </div>
         <div class="event">
@@ -239,7 +239,7 @@ main{max-width:900px;margin:0 auto;padding:22px 16px 50px} .day{display:none} .d
           <div class="event-body">
             <div class="event-title">午餐</div>
             <div class="event-desc">奈良公園／東大寺周邊</div>
-            <div class="actions"><a class="mapbtn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Todaiji+Temple">Google Maps ↗</a><button class="deletebtn" onclick="deleteEvent(this)">刪除</button></div>
+            <div class="actions"><a class="mapbtn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Todaiji+Temple">Google Maps ↗</a><button class="editbtn" onclick="editEvent(this)">編輯</button><button class="deletebtn" onclick="deleteEvent(this)">刪除</button></div>
           </div>
         </div>
         <div class="event">
@@ -248,7 +248,7 @@ main{max-width:900px;margin:0 auto;padding:22px 16px 50px} .day{display:none} .d
           <div class="event-body">
             <div class="event-title">奈良春日野國際論壇 甍 I・RA・KA</div>
             <div class="event-desc">預計停留約 1 小時</div>
-            <div class="actions"><a class="mapbtn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=I-RA-KA+Nara+Kasugano+International+Forum">Google Maps ↗</a><button class="deletebtn" onclick="deleteEvent(this)">刪除</button></div>
+            <div class="actions"><a class="mapbtn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=I-RA-KA+Nara+Kasugano+International+Forum">Google Maps ↗</a><button class="editbtn" onclick="editEvent(this)">編輯</button><button class="deletebtn" onclick="deleteEvent(this)">刪除</button></div>
           </div>
         </div>
         <div class="event">
@@ -257,7 +257,7 @@ main{max-width:900px;margin:0 auto;padding:22px 16px 50px} .day{display:none} .d
           <div class="event-body">
             <div class="event-title">大佛布丁</div>
             <div class="event-desc">まほろば大仏プリン本舗 東大寺門前夢風ひろば店</div>
-            <div class="actions"><a class="mapbtn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Mahoroba+Daibutsu+Pudding+Todaiji">Google Maps ↗</a><button class="deletebtn" onclick="deleteEvent(this)">刪除</button></div>
+            <div class="actions"><a class="mapbtn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Mahoroba+Daibutsu+Pudding+Todaiji">Google Maps ↗</a><button class="editbtn" onclick="editEvent(this)">編輯</button><button class="deletebtn" onclick="deleteEvent(this)">刪除</button></div>
           </div>
         </div>
         <div class="event">
@@ -266,7 +266,7 @@ main{max-width:900px;margin:0 auto;padding:22px 16px 50px} .day{display:none} .d
           <div class="event-body">
             <div class="event-title">春日大社・奈良公園</div>
             <div class="event-desc">預計至 16:30</div>
-            <div class="actions"><a class="mapbtn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Kasuga+Taisha">Google Maps ↗</a><button class="deletebtn" onclick="deleteEvent(this)">刪除</button></div>
+            <div class="actions"><a class="mapbtn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Kasuga+Taisha">Google Maps ↗</a><button class="editbtn" onclick="editEvent(this)">編輯</button><button class="deletebtn" onclick="deleteEvent(this)">刪除</button></div>
           </div>
         </div>
         <div class="event">
@@ -275,7 +275,7 @@ main{max-width:900px;margin:0 auto;padding:22px 16px 50px} .day{display:none} .d
           <div class="event-body">
             <div class="event-title">返回大阪</div>
             <div class="event-desc">近鐵奈良 → 鶴橋 → JR → 弁天町，約 18:30 回住宿</div>
-            <div class="actions"><a class="mapbtn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Bentencho+Station">Google Maps ↗</a><button class="deletebtn" onclick="deleteEvent(this)">刪除</button></div>
+            <div class="actions"><a class="mapbtn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Bentencho+Station">Google Maps ↗</a><button class="editbtn" onclick="editEvent(this)">編輯</button><button class="deletebtn" onclick="deleteEvent(this)">刪除</button></div>
           </div>
         </div></div>
     
@@ -303,7 +303,7 @@ main{max-width:900px;margin:0 auto;padding:22px 16px 50px} .day{display:none} .d
           <div class="event-body">
             <div class="event-title">住宿出發</div>
             <div class="event-desc">弁天町 → 西九条 → JR ゆめ咲線 → Universal City</div>
-            <div class="actions"><a class="mapbtn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Universal+City+Station+Osaka">Google Maps ↗</a><button class="deletebtn" onclick="deleteEvent(this)">刪除</button></div>
+            <div class="actions"><a class="mapbtn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Universal+City+Station+Osaka">Google Maps ↗</a><button class="editbtn" onclick="editEvent(this)">編輯</button><button class="deletebtn" onclick="deleteEvent(this)">刪除</button></div>
           </div>
         </div>
         <div class="event">
@@ -312,7 +312,7 @@ main{max-width:900px;margin:0 auto;padding:22px 16px 50px} .day{display:none} .d
           <div class="event-body">
             <div class="event-title">USJ 提早排隊</div>
             <div class="event-desc">不要等表定開園才抵達</div>
-            <div class="actions"><a class="mapbtn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Universal+Studios+Japan">Google Maps ↗</a><button class="deletebtn" onclick="deleteEvent(this)">刪除</button></div>
+            <div class="actions"><a class="mapbtn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Universal+Studios+Japan">Google Maps ↗</a><button class="editbtn" onclick="editEvent(this)">編輯</button><button class="deletebtn" onclick="deleteEvent(this)">刪除</button></div>
           </div>
         </div>
         <div class="event">
@@ -321,7 +321,7 @@ main{max-width:900px;margin:0 auto;padding:22px 16px 50px} .day{display:none} .d
           <div class="event-body">
             <div class="event-title">Universal Studios Japan 全天</div>
             <div class="event-desc">任天堂世界、咚奇剛、哈利波特、飛天翼龍、Hollywood Dream、小小兵</div>
-            <div class="actions"><a class="mapbtn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Universal+Studios+Japan">Google Maps ↗</a><button class="deletebtn" onclick="deleteEvent(this)">刪除</button></div>
+            <div class="actions"><a class="mapbtn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Universal+Studios+Japan">Google Maps ↗</a><button class="editbtn" onclick="editEvent(this)">編輯</button><button class="deletebtn" onclick="deleteEvent(this)">刪除</button></div>
           </div>
         </div>
         <div class="event">
@@ -330,7 +330,7 @@ main{max-width:900px;margin:0 auto;padding:22px 16px 50px} .day{display:none} .d
           <div class="event-body">
             <div class="event-title">準備返回住宿</div>
             <div class="event-desc">Universal City → 西九条 → 弁天町；依實際閉園時間調整</div>
-            <div class="actions"><a class="mapbtn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Bentencho+Station">Google Maps ↗</a><button class="deletebtn" onclick="deleteEvent(this)">刪除</button></div>
+            <div class="actions"><a class="mapbtn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Bentencho+Station">Google Maps ↗</a><button class="editbtn" onclick="editEvent(this)">編輯</button><button class="deletebtn" onclick="deleteEvent(this)">刪除</button></div>
           </div>
         </div></div>
     
@@ -358,7 +358,7 @@ main{max-width:900px;margin:0 auto;padding:22px 16px 50px} .day{display:none} .d
           <div class="event-body">
             <div class="event-title">弁天町出發</div>
             <div class="event-desc">弁天町 → 大阪 → 京都 → JR 奈良線 → 稻荷</div>
-            <div class="actions"><a class="mapbtn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Inari+Station+Kyoto">Google Maps ↗</a><button class="deletebtn" onclick="deleteEvent(this)">刪除</button></div>
+            <div class="actions"><a class="mapbtn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Inari+Station+Kyoto">Google Maps ↗</a><button class="editbtn" onclick="editEvent(this)">編輯</button><button class="deletebtn" onclick="deleteEvent(this)">刪除</button></div>
           </div>
         </div>
         <div class="event">
@@ -367,7 +367,7 @@ main{max-width:900px;margin:0 auto;padding:22px 16px 50px} .day{display:none} .d
           <div class="event-body">
             <div class="event-title">伏見稻荷大社</div>
             <div class="event-desc">千本鳥居，預計至 10:00</div>
-            <div class="actions"><a class="mapbtn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Fushimi+Inari+Taisha">Google Maps ↗</a><button class="deletebtn" onclick="deleteEvent(this)">刪除</button></div>
+            <div class="actions"><a class="mapbtn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Fushimi+Inari+Taisha">Google Maps ↗</a><button class="editbtn" onclick="editEvent(this)">編輯</button><button class="deletebtn" onclick="deleteEvent(this)">刪除</button></div>
           </div>
         </div>
         <div class="event">
@@ -376,7 +376,7 @@ main{max-width:900px;margin:0 auto;padding:22px 16px 50px} .day{display:none} .d
           <div class="event-body">
             <div class="event-title">前往清水寺</div>
             <div class="event-desc">京阪伏見稻荷 → 清水五条，再步行上坡</div>
-            <div class="actions"><a class="mapbtn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Kiyomizugojo+Station">Google Maps ↗</a><button class="deletebtn" onclick="deleteEvent(this)">刪除</button></div>
+            <div class="actions"><a class="mapbtn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Kiyomizugojo+Station">Google Maps ↗</a><button class="editbtn" onclick="editEvent(this)">編輯</button><button class="deletebtn" onclick="deleteEvent(this)">刪除</button></div>
           </div>
         </div>
         <div class="event">
@@ -385,7 +385,7 @@ main{max-width:900px;margin:0 auto;padding:22px 16px 50px} .day{display:none} .d
           <div class="event-body">
             <div class="event-title">清水寺</div>
             <div class="event-desc">預計至 13:00</div>
-            <div class="actions"><a class="mapbtn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Kiyomizu-dera">Google Maps ↗</a><button class="deletebtn" onclick="deleteEvent(this)">刪除</button></div>
+            <div class="actions"><a class="mapbtn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Kiyomizu-dera">Google Maps ↗</a><button class="editbtn" onclick="editEvent(this)">編輯</button><button class="deletebtn" onclick="deleteEvent(this)">刪除</button></div>
           </div>
         </div>
         <div class="event">
@@ -394,7 +394,7 @@ main{max-width:900px;margin:0 auto;padding:22px 16px 50px} .day{display:none} .d
           <div class="event-body">
             <div class="event-title">三年坂・二年坂・八坂塔</div>
             <div class="event-desc">邊走邊吃午餐，預計至 15:30</div>
-            <div class="actions"><a class="mapbtn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Sannenzaka+Kyoto">Google Maps ↗</a><button class="deletebtn" onclick="deleteEvent(this)">刪除</button></div>
+            <div class="actions"><a class="mapbtn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Sannenzaka+Kyoto">Google Maps ↗</a><button class="editbtn" onclick="editEvent(this)">編輯</button><button class="deletebtn" onclick="deleteEvent(this)">刪除</button></div>
           </div>
         </div>
         <div class="event">
@@ -403,7 +403,7 @@ main{max-width:900px;margin:0 auto;padding:22px 16px 50px} .day{display:none} .d
           <div class="event-body">
             <div class="event-title">八坂神社・花見小路・祇園</div>
             <div class="event-desc">步行遊覽至約 17:30</div>
-            <div class="actions"><a class="mapbtn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Gion+Kyoto">Google Maps ↗</a><button class="deletebtn" onclick="deleteEvent(this)">刪除</button></div>
+            <div class="actions"><a class="mapbtn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Gion+Kyoto">Google Maps ↗</a><button class="editbtn" onclick="editEvent(this)">編輯</button><button class="deletebtn" onclick="deleteEvent(this)">刪除</button></div>
           </div>
         </div>
         <div class="event">
@@ -412,7 +412,7 @@ main{max-width:900px;margin:0 auto;padding:22px 16px 50px} .day{display:none} .d
           <div class="event-body">
             <div class="event-title">京都晚餐／自由活動</div>
             <div class="event-desc">祇園附近</div>
-            <div class="actions"><a class="mapbtn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Gion+Kyoto">Google Maps ↗</a><button class="deletebtn" onclick="deleteEvent(this)">刪除</button></div>
+            <div class="actions"><a class="mapbtn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Gion+Kyoto">Google Maps ↗</a><button class="editbtn" onclick="editEvent(this)">編輯</button><button class="deletebtn" onclick="deleteEvent(this)">刪除</button></div>
           </div>
         </div>
         <div class="event">
@@ -421,7 +421,7 @@ main{max-width:900px;margin:0 auto;padding:22px 16px 50px} .day{display:none} .d
           <div class="event-body">
             <div class="event-title">返回大阪</div>
             <div class="event-desc">依當天位置選京阪或 JR，約 20:30 回住宿</div>
-            <div class="actions"><a class="mapbtn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Bentencho+Station">Google Maps ↗</a><button class="deletebtn" onclick="deleteEvent(this)">刪除</button></div>
+            <div class="actions"><a class="mapbtn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Bentencho+Station">Google Maps ↗</a><button class="editbtn" onclick="editEvent(this)">編輯</button><button class="deletebtn" onclick="deleteEvent(this)">刪除</button></div>
           </div>
         </div></div>
     
@@ -449,7 +449,7 @@ main{max-width:900px;margin:0 auto;padding:22px 16px 50px} .day{display:none} .d
           <div class="event-body">
             <div class="event-title">弁天町出發</div>
             <div class="event-desc">弁天町 → 本町 → 御堂筋線／北大阪急行 → 箕面萱野</div>
-            <div class="actions"><a class="mapbtn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Minoh-kayano+Station">Google Maps ↗</a><button class="deletebtn" onclick="deleteEvent(this)">刪除</button></div>
+            <div class="actions"><a class="mapbtn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Minoh-kayano+Station">Google Maps ↗</a><button class="editbtn" onclick="editEvent(this)">編輯</button><button class="deletebtn" onclick="deleteEvent(this)">刪除</button></div>
           </div>
         </div>
         <div class="event">
@@ -458,7 +458,7 @@ main{max-width:900px;margin:0 auto;padding:22px 16px 50px} .day{display:none} .d
           <div class="event-body">
             <div class="event-title">前往勝尾寺</div>
             <div class="event-desc">箕面萱野 → 勝尾寺巴士；2027 班表公布後再校正</div>
-            <div class="actions"><a class="mapbtn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Katsuoji+Temple">Google Maps ↗</a><button class="deletebtn" onclick="deleteEvent(this)">刪除</button></div>
+            <div class="actions"><a class="mapbtn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Katsuoji+Temple">Google Maps ↗</a><button class="editbtn" onclick="editEvent(this)">編輯</button><button class="deletebtn" onclick="deleteEvent(this)">刪除</button></div>
           </div>
         </div>
         <div class="event">
@@ -467,7 +467,7 @@ main{max-width:900px;margin:0 auto;padding:22px 16px 50px} .day{display:none} .d
           <div class="event-body">
             <div class="event-title">勝尾寺</div>
             <div class="event-desc">達摩寺，預計至 12:00</div>
-            <div class="actions"><a class="mapbtn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Katsuoji+Temple">Google Maps ↗</a><button class="deletebtn" onclick="deleteEvent(this)">刪除</button></div>
+            <div class="actions"><a class="mapbtn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Katsuoji+Temple">Google Maps ↗</a><button class="editbtn" onclick="editEvent(this)">編輯</button><button class="deletebtn" onclick="deleteEvent(this)">刪除</button></div>
           </div>
         </div>
         <div class="event">
@@ -476,7 +476,7 @@ main{max-width:900px;margin:0 auto;padding:22px 16px 50px} .day{display:none} .d
           <div class="event-body">
             <div class="event-title">前往梅田</div>
             <div class="event-desc">勝尾寺 → 箕面萱野 → 北大阪急行／御堂筋線 → 梅田</div>
-            <div class="actions"><a class="mapbtn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Umeda+Station+Osaka">Google Maps ↗</a><button class="deletebtn" onclick="deleteEvent(this)">刪除</button></div>
+            <div class="actions"><a class="mapbtn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Umeda+Station+Osaka">Google Maps ↗</a><button class="editbtn" onclick="editEvent(this)">編輯</button><button class="deletebtn" onclick="deleteEvent(this)">刪除</button></div>
           </div>
         </div>
         <div class="event">
@@ -485,7 +485,7 @@ main{max-width:900px;margin:0 auto;padding:22px 16px 50px} .day{display:none} .d
           <div class="event-body">
             <div class="event-title">阪急梅田・Grand Front・大阪站</div>
             <div class="event-desc">購物至約 17:30</div>
-            <div class="actions"><a class="mapbtn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Hankyu+Umeda+Main+Store">Google Maps ↗</a><button class="deletebtn" onclick="deleteEvent(this)">刪除</button></div>
+            <div class="actions"><a class="mapbtn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Hankyu+Umeda+Main+Store">Google Maps ↗</a><button class="editbtn" onclick="editEvent(this)">編輯</button><button class="deletebtn" onclick="deleteEvent(this)">刪除</button></div>
           </div>
         </div>
         <div class="event">
@@ -494,7 +494,7 @@ main{max-width:900px;margin:0 auto;padding:22px 16px 50px} .day{display:none} .d
           <div class="event-body">
             <div class="event-title">神戶あぶり牧場 本店</div>
             <div class="event-desc">晚餐預計至 20:00</div>
-            <div class="actions"><a class="mapbtn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Kobe+Aburi+Bokujyo+Umeda">Google Maps ↗</a><button class="deletebtn" onclick="deleteEvent(this)">刪除</button></div>
+            <div class="actions"><a class="mapbtn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Kobe+Aburi+Bokujyo+Umeda">Google Maps ↗</a><button class="editbtn" onclick="editEvent(this)">編輯</button><button class="deletebtn" onclick="deleteEvent(this)">刪除</button></div>
           </div>
         </div>
         <div class="event">
@@ -503,7 +503,7 @@ main{max-width:900px;margin:0 auto;padding:22px 16px 50px} .day{display:none} .d
           <div class="event-body">
             <div class="event-title">返回弁天町</div>
             <div class="event-desc">大阪站 → JR 大阪環狀線 → 弁天町</div>
-            <div class="actions"><a class="mapbtn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Bentencho+Station">Google Maps ↗</a><button class="deletebtn" onclick="deleteEvent(this)">刪除</button></div>
+            <div class="actions"><a class="mapbtn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Bentencho+Station">Google Maps ↗</a><button class="editbtn" onclick="editEvent(this)">編輯</button><button class="deletebtn" onclick="deleteEvent(this)">刪除</button></div>
           </div>
         </div></div>
     
@@ -531,7 +531,7 @@ main{max-width:900px;margin:0 auto;padding:22px 16px 50px} .day{display:none} .d
           <div class="event-body">
             <div class="event-title">住宿出發</div>
             <div class="event-desc">弁天町 → 本町 → 大國町</div>
-            <div class="actions"><a class="mapbtn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Daikokucho+Station">Google Maps ↗</a><button class="deletebtn" onclick="deleteEvent(this)">刪除</button></div>
+            <div class="actions"><a class="mapbtn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Daikokucho+Station">Google Maps ↗</a><button class="editbtn" onclick="editEvent(this)">編輯</button><button class="deletebtn" onclick="deleteEvent(this)">刪除</button></div>
           </div>
         </div>
         <div class="event">
@@ -540,7 +540,7 @@ main{max-width:900px;margin:0 auto;padding:22px 16px 50px} .day{display:none} .d
           <div class="event-body">
             <div class="event-title">木津市場＋早餐</div>
             <div class="event-desc">早市，預計至 08:30</div>
-            <div class="actions"><a class="mapbtn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Osaka+Kizu+Wholesale+Market">Google Maps ↗</a><button class="deletebtn" onclick="deleteEvent(this)">刪除</button></div>
+            <div class="actions"><a class="mapbtn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Osaka+Kizu+Wholesale+Market">Google Maps ↗</a><button class="editbtn" onclick="editEvent(this)">編輯</button><button class="deletebtn" onclick="deleteEvent(this)">刪除</button></div>
           </div>
         </div>
         <div class="event">
@@ -549,7 +549,7 @@ main{max-width:900px;margin:0 auto;padding:22px 16px 50px} .day{display:none} .d
           <div class="event-body">
             <div class="event-title">前往大鳥大社</div>
             <div class="event-desc">大國町 → 天王寺 → JR 阪和線 → 鳳，步行前往</div>
-            <div class="actions"><a class="mapbtn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Otori+Station+Osaka">Google Maps ↗</a><button class="deletebtn" onclick="deleteEvent(this)">刪除</button></div>
+            <div class="actions"><a class="mapbtn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Otori+Station+Osaka">Google Maps ↗</a><button class="editbtn" onclick="editEvent(this)">編輯</button><button class="deletebtn" onclick="deleteEvent(this)">刪除</button></div>
           </div>
         </div>
         <div class="event">
@@ -558,7 +558,7 @@ main{max-width:900px;margin:0 auto;padding:22px 16px 50px} .day{display:none} .d
           <div class="event-body">
             <div class="event-title">大鳥大社</div>
             <div class="event-desc">預計至 10:30</div>
-            <div class="actions"><a class="mapbtn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Otori+Taisha">Google Maps ↗</a><button class="deletebtn" onclick="deleteEvent(this)">刪除</button></div>
+            <div class="actions"><a class="mapbtn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Otori+Taisha">Google Maps ↗</a><button class="editbtn" onclick="editEvent(this)">編輯</button><button class="deletebtn" onclick="deleteEvent(this)">刪除</button></div>
           </div>
         </div>
         <div class="event">
@@ -567,7 +567,7 @@ main{max-width:900px;margin:0 auto;padding:22px 16px 50px} .day{display:none} .d
           <div class="event-body">
             <div class="event-title">返回難波</div>
             <div class="event-desc">鳳 → 天王寺 → 難波／大國町</div>
-            <div class="actions"><a class="mapbtn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Namba+Station+Osaka">Google Maps ↗</a><button class="deletebtn" onclick="deleteEvent(this)">刪除</button></div>
+            <div class="actions"><a class="mapbtn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Namba+Station+Osaka">Google Maps ↗</a><button class="editbtn" onclick="editEvent(this)">編輯</button><button class="deletebtn" onclick="deleteEvent(this)">刪除</button></div>
           </div>
         </div>
         <div class="event">
@@ -576,7 +576,7 @@ main{max-width:900px;margin:0 auto;padding:22px 16px 50px} .day{display:none} .d
           <div class="event-body">
             <div class="event-title">難波八阪神社</div>
             <div class="event-desc">巨大獅子殿，至約 12:10</div>
-            <div class="actions"><a class="mapbtn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Namba+Yasaka+Shrine">Google Maps ↗</a><button class="deletebtn" onclick="deleteEvent(this)">刪除</button></div>
+            <div class="actions"><a class="mapbtn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Namba+Yasaka+Shrine">Google Maps ↗</a><button class="editbtn" onclick="editEvent(this)">編輯</button><button class="deletebtn" onclick="deleteEvent(this)">刪除</button></div>
           </div>
         </div>
         <div class="event">
@@ -585,7 +585,7 @@ main{max-width:900px;margin:0 auto;padding:22px 16px 50px} .day{display:none} .d
           <div class="event-body">
             <div class="event-title">午餐＋前往新世界</div>
             <div class="event-desc">步行／短程 Metro</div>
-            <div class="actions"><a class="mapbtn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Shinsekai+Osaka">Google Maps ↗</a><button class="deletebtn" onclick="deleteEvent(this)">刪除</button></div>
+            <div class="actions"><a class="mapbtn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Shinsekai+Osaka">Google Maps ↗</a><button class="editbtn" onclick="editEvent(this)">編輯</button><button class="deletebtn" onclick="deleteEvent(this)">刪除</button></div>
           </div>
         </div>
         <div class="event">
@@ -594,7 +594,7 @@ main{max-width:900px;margin:0 auto;padding:22px 16px 50px} .day{display:none} .d
           <div class="event-body">
             <div class="event-title">通天閣・新世界</div>
             <div class="event-desc">預計至 14:20</div>
-            <div class="actions"><a class="mapbtn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Tsutenkaku">Google Maps ↗</a><button class="deletebtn" onclick="deleteEvent(this)">刪除</button></div>
+            <div class="actions"><a class="mapbtn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Tsutenkaku">Google Maps ↗</a><button class="editbtn" onclick="editEvent(this)">編輯</button><button class="deletebtn" onclick="deleteEvent(this)">刪除</button></div>
           </div>
         </div>
         <div class="event">
@@ -603,7 +603,7 @@ main{max-width:900px;margin:0 auto;padding:22px 16px 50px} .day{display:none} .d
           <div class="event-body">
             <div class="event-title">前往 Akiba Kart</div>
             <div class="event-desc">通天閣步行約 10～15 分鐘</div>
-            <div class="actions"><a class="mapbtn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Akiba+Kart+Osaka">Google Maps ↗</a><button class="deletebtn" onclick="deleteEvent(this)">刪除</button></div>
+            <div class="actions"><a class="mapbtn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Akiba+Kart+Osaka">Google Maps ↗</a><button class="editbtn" onclick="editEvent(this)">編輯</button><button class="deletebtn" onclick="deleteEvent(this)">刪除</button></div>
           </div>
         </div>
         <div class="event">
@@ -612,7 +612,7 @@ main{max-width:900px;margin:0 auto;padding:22px 16px 50px} .day{display:none} .d
           <div class="event-body">
             <div class="event-title">Akiba Kart Osaka</div>
             <div class="event-desc">固定預留至 16:15；駕照文件請事先備妥</div>
-            <div class="actions"><a class="mapbtn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Akiba+Kart+Osaka">Google Maps ↗</a><button class="deletebtn" onclick="deleteEvent(this)">刪除</button></div>
+            <div class="actions"><a class="mapbtn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Akiba+Kart+Osaka">Google Maps ↗</a><button class="editbtn" onclick="editEvent(this)">編輯</button><button class="deletebtn" onclick="deleteEvent(this)">刪除</button></div>
           </div>
         </div>
         <div class="event">
@@ -621,7 +621,7 @@ main{max-width:900px;margin:0 auto;padding:22px 16px 50px} .day{display:none} .d
           <div class="event-body">
             <div class="event-title">前往心齋橋</div>
             <div class="event-desc">惠美須町 → 長堀橋／心齋橋</div>
-            <div class="actions"><a class="mapbtn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Shinsaibashi+PARCO">Google Maps ↗</a><button class="deletebtn" onclick="deleteEvent(this)">刪除</button></div>
+            <div class="actions"><a class="mapbtn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Shinsaibashi+PARCO">Google Maps ↗</a><button class="editbtn" onclick="editEvent(this)">編輯</button><button class="deletebtn" onclick="deleteEvent(this)">刪除</button></div>
           </div>
         </div>
         <div class="event">
@@ -630,7 +630,7 @@ main{max-width:900px;margin:0 auto;padding:22px 16px 50px} .day{display:none} .d
           <div class="event-body">
             <div class="event-title">心齋橋 PARCO</div>
             <div class="event-desc">預計至 19:00</div>
-            <div class="actions"><a class="mapbtn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Shinsaibashi+PARCO">Google Maps ↗</a><button class="deletebtn" onclick="deleteEvent(this)">刪除</button></div>
+            <div class="actions"><a class="mapbtn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Shinsaibashi+PARCO">Google Maps ↗</a><button class="editbtn" onclick="editEvent(this)">編輯</button><button class="deletebtn" onclick="deleteEvent(this)">刪除</button></div>
           </div>
         </div>
         <div class="event">
@@ -639,7 +639,7 @@ main{max-width:900px;margin:0 auto;padding:22px 16px 50px} .day{display:none} .d
           <div class="event-body">
             <div class="event-title">心齋橋筋 → 道頓堀</div>
             <div class="event-desc">一路步行逛街</div>
-            <div class="actions"><a class="mapbtn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Dotonbori+Osaka">Google Maps ↗</a><button class="deletebtn" onclick="deleteEvent(this)">刪除</button></div>
+            <div class="actions"><a class="mapbtn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Dotonbori+Osaka">Google Maps ↗</a><button class="editbtn" onclick="editEvent(this)">編輯</button><button class="deletebtn" onclick="deleteEvent(this)">刪除</button></div>
           </div>
         </div>
         <div class="event">
@@ -648,7 +648,7 @@ main{max-width:900px;margin:0 auto;padding:22px 16px 50px} .day{display:none} .d
           <div class="event-body">
             <div class="event-title">道頓堀晚餐</div>
             <div class="event-desc">あぶりや 或 蟹道樂，二選一</div>
-            <div class="actions"><a class="mapbtn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Dotonbori+Osaka">Google Maps ↗</a><button class="deletebtn" onclick="deleteEvent(this)">刪除</button></div>
+            <div class="actions"><a class="mapbtn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Dotonbori+Osaka">Google Maps ↗</a><button class="editbtn" onclick="editEvent(this)">編輯</button><button class="deletebtn" onclick="deleteEvent(this)">刪除</button></div>
           </div>
         </div>
         <div class="event">
@@ -657,7 +657,7 @@ main{max-width:900px;margin:0 auto;padding:22px 16px 50px} .day{display:none} .d
           <div class="event-body">
             <div class="event-title">道頓堀・金久右衛門</div>
             <div class="event-desc">自由活動／宵夜至約 22:30</div>
-            <div class="actions"><a class="mapbtn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Dotonbori+Osaka">Google Maps ↗</a><button class="deletebtn" onclick="deleteEvent(this)">刪除</button></div>
+            <div class="actions"><a class="mapbtn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Dotonbori+Osaka">Google Maps ↗</a><button class="editbtn" onclick="editEvent(this)">編輯</button><button class="deletebtn" onclick="deleteEvent(this)">刪除</button></div>
           </div>
         </div>
         <div class="event">
@@ -666,7 +666,7 @@ main{max-width:900px;margin:0 auto;padding:22px 16px 50px} .day{display:none} .d
           <div class="event-body">
             <div class="event-title">返回住宿</div>
             <div class="event-desc">難波 → 本町 → 弁天町</div>
-            <div class="actions"><a class="mapbtn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Bentencho+Station">Google Maps ↗</a><button class="deletebtn" onclick="deleteEvent(this)">刪除</button></div>
+            <div class="actions"><a class="mapbtn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Bentencho+Station">Google Maps ↗</a><button class="editbtn" onclick="editEvent(this)">編輯</button><button class="deletebtn" onclick="deleteEvent(this)">刪除</button></div>
           </div>
         </div></div>
     
@@ -694,7 +694,7 @@ main{max-width:900px;margin:0 auto;padding:22px 16px 50px} .day{display:none} .d
           <div class="event-body">
             <div class="event-title">起床・早餐</div>
             <div class="event-desc">最後整理行李</div>
-            <div class="actions"><a class="mapbtn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Bentencho+Station">Google Maps ↗</a><button class="deletebtn" onclick="deleteEvent(this)">刪除</button></div>
+            <div class="actions"><a class="mapbtn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Bentencho+Station">Google Maps ↗</a><button class="editbtn" onclick="editEvent(this)">編輯</button><button class="deletebtn" onclick="deleteEvent(this)">刪除</button></div>
           </div>
         </div>
         <div class="event">
@@ -703,7 +703,7 @@ main{max-width:900px;margin:0 auto;padding:22px 16px 50px} .day{display:none} .d
           <div class="event-body">
             <div class="event-title">Check-out</div>
             <div class="event-desc">準備前往機場</div>
-            <div class="actions"><a class="mapbtn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Bentencho+Station">Google Maps ↗</a><button class="deletebtn" onclick="deleteEvent(this)">刪除</button></div>
+            <div class="actions"><a class="mapbtn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Bentencho+Station">Google Maps ↗</a><button class="editbtn" onclick="editEvent(this)">編輯</button><button class="deletebtn" onclick="deleteEvent(this)">刪除</button></div>
           </div>
         </div>
         <div class="event">
@@ -712,7 +712,7 @@ main{max-width:900px;margin:0 auto;padding:22px 16px 50px} .day{display:none} .d
           <div class="event-body">
             <div class="event-title">前往關西國際機場</div>
             <div class="event-desc">弁天町 → KIX；當天依 NAVITIME 班次搭乘</div>
-            <div class="actions"><a class="mapbtn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Kansai+International+Airport">Google Maps ↗</a><button class="deletebtn" onclick="deleteEvent(this)">刪除</button></div>
+            <div class="actions"><a class="mapbtn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Kansai+International+Airport">Google Maps ↗</a><button class="editbtn" onclick="editEvent(this)">編輯</button><button class="deletebtn" onclick="deleteEvent(this)">刪除</button></div>
           </div>
         </div>
         <div class="event">
@@ -721,7 +721,7 @@ main{max-width:900px;margin:0 auto;padding:22px 16px 50px} .day{display:none} .d
           <div class="event-body">
             <div class="event-title">抵達 KIX</div>
             <div class="event-desc">托運、安檢、出境、午餐、免稅店</div>
-            <div class="actions"><a class="mapbtn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Kansai+International+Airport">Google Maps ↗</a><button class="deletebtn" onclick="deleteEvent(this)">刪除</button></div>
+            <div class="actions"><a class="mapbtn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Kansai+International+Airport">Google Maps ↗</a><button class="editbtn" onclick="editEvent(this)">編輯</button><button class="deletebtn" onclick="deleteEvent(this)">刪除</button></div>
           </div>
         </div>
         <div class="event">
@@ -730,7 +730,7 @@ main{max-width:900px;margin:0 auto;padding:22px 16px 50px} .day{display:none} .d
           <div class="event-body">
             <div class="event-title">起飛回台灣</div>
             <div class="event-desc"></div>
-            <div class="actions"><a class="mapbtn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Kansai+International+Airport">Google Maps ↗</a><button class="deletebtn" onclick="deleteEvent(this)">刪除</button></div>
+            <div class="actions"><a class="mapbtn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Kansai+International+Airport">Google Maps ↗</a><button class="editbtn" onclick="editEvent(this)">編輯</button><button class="deletebtn" onclick="deleteEvent(this)">刪除</button></div>
           </div>
         </div></div>
     
@@ -762,9 +762,28 @@ let user=null,remote=false;
 const esc=v=>String(v).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const capture=()=>Object.fromEntries([...Array(8)].map((_,i)=>[i+1,document.getElementById('timeline'+(i+1)).innerHTML]));
 async function save(){if(!remote&&user)await setDoc(tripRef,{days:capture(),updatedAt:Date.now(),updatedBy:user.email||user.uid},{merge:true})}
-function editing(on){document.querySelectorAll('.addwrap,.deletebtn').forEach(e=>e.style.display=on?'':'none')}
+function editing(on){document.querySelectorAll('.addwrap,.editbtn,.deletebtn').forEach(e=>e.style.display=on?'':'none')}
 window.openEditor=n=>document.getElementById('editor'+n).classList.add('open');window.closeEditor=n=>document.getElementById('editor'+n).classList.remove('open');
-window.addEvent=async n=>{if(!user)return alert('請先用 Google 登入');let time=document.getElementById('time'+n).value.trim()||'未定',title=document.getElementById('title'+n).value.trim(),icon=document.getElementById('icon'+n).value.trim()||'📍',map=document.getElementById('map'+n).value.trim()||title,desc=document.getElementById('desc'+n).value.trim();if(!title)return alert('請輸入景點名稱');let e=document.createElement('div');e.className='event';e.innerHTML=`<div class="time">${esc(time)}</div><div class="dot">${esc(icon)}</div><div class="event-body"><div class="event-title">${esc(title)}</div><div class="event-desc">${esc(desc)}</div><div class="actions"><a class="mapbtn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(map)}">Google Maps ↗</a><button class="deletebtn" onclick="deleteEvent(this)">刪除</button></div></div>`;document.getElementById('timeline'+n).appendChild(e);['time','title','icon','map','desc'].forEach(k=>document.getElementById(k+n).value='');window.closeEditor(n);await save()};
+window.addEvent=async n=>{if(!user)return alert('請先用 Google 登入');let time=document.getElementById('time'+n).value.trim()||'未定',title=document.getElementById('title'+n).value.trim(),icon=document.getElementById('icon'+n).value.trim()||'📍',map=document.getElementById('map'+n).value.trim()||title,desc=document.getElementById('desc'+n).value.trim();if(!title)return alert('請輸入景點名稱');let e=document.createElement('div');e.className='event';e.innerHTML=`<div class="time">${esc(time)}</div><div class="dot">${esc(icon)}</div><div class="event-body"><div class="event-title">${esc(title)}</div><div class="event-desc">${esc(desc)}</div><div class="actions"><a class="mapbtn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(map)}">Google Maps ↗</a><button class="editbtn" onclick="editEvent(this)">編輯</button><button class="deletebtn" onclick="deleteEvent(this)">刪除</button></div></div>`;document.getElementById('timeline'+n).appendChild(e);['time','title','icon','map','desc'].forEach(k=>document.getElementById(k+n).value='');window.closeEditor(n);await save()};
+window.editEvent=async b=>{
+ if(!user)return alert('請先用 Google 登入');
+ const event=b.closest('.event');
+ const timeEl=event.querySelector('.time'), iconEl=event.querySelector('.dot'),
+ titleEl=event.querySelector('.event-title'), descEl=event.querySelector('.event-desc'),
+ mapEl=event.querySelector('.mapbtn');
+ const time=prompt('時間',timeEl.textContent.trim()); if(time===null)return;
+ const title=prompt('景點名稱',titleEl.textContent.trim()); if(title===null||!title.trim())return;
+ const icon=prompt('圖示',iconEl.textContent.trim()); if(icon===null)return;
+ const desc=prompt('交通／備註',descEl.textContent.trim()); if(desc===null)return;
+ const currentMap=new URL(mapEl.href).searchParams.get('query')||titleEl.textContent.trim();
+ const map=prompt('Google Maps 搜尋名稱',currentMap); if(map===null)return;
+ timeEl.textContent=time.trim()||'未定';
+ titleEl.textContent=title.trim();
+ iconEl.textContent=icon.trim()||'📍';
+ descEl.textContent=desc.trim();
+ mapEl.href='https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(map.trim()||title.trim());
+ await save();
+};
 window.deleteEvent=async b=>{if(!user)return alert('請先用 Google 登入');if(confirm('確定要刪除這個行程嗎？')){b.closest('.event').remove();await save()}};
 window.showDay=n=>{document.querySelectorAll('.day').forEach(x=>x.classList.remove('active'));document.querySelectorAll('.nav button').forEach(x=>x.classList.remove('active'));document.getElementById('day'+n).classList.add('active');document.getElementById('b'+n).classList.add('active');localStorage.setItem('tripDay',n)};
 const initial=capture(),bar=document.createElement('div');bar.style.cssText='max-width:900px;margin:14px auto 0;padding:0 16px;display:flex;justify-content:flex-end;align-items:center;gap:9px;font-size:13px';bar.innerHTML='<span id="authState">尚未登入</span><button id="authBtn" style="border:0;border-radius:9px;padding:9px 12px;background:#111;color:#fff;cursor:pointer">Google 登入</button>';document.querySelector('.hero').after(bar);
