@@ -754,10 +754,10 @@ main{max-width:900px;margin:0 auto;padding:22px 16px 50px} .day{display:none} .d
 <div class="footer">住宿基地：5-chōme-2-5 Namiyoke, Osaka 552-0001。勝尾寺為本行程唯一需要以巴士銜接為主的景點；其餘以 JR、Osaka Metro、近鐵、京阪與步行安排。</div>
 <script type="module">
 import {initializeApp} from "https://www.gstatic.com/firebasejs/12.4.0/firebase-app.js";
-import {getFirestore,doc,getDoc,setDoc,onSnapshot} from "https://www.gstatic.com/firebasejs/12.4.0/firebase-firestore.js";
+import {initializeFirestore,doc,getDoc,setDoc,onSnapshot} from "https://www.gstatic.com/firebasejs/12.4.0/firebase-firestore.js";
 import {getAuth,GoogleAuthProvider,signInWithPopup,signOut,onAuthStateChanged,setPersistence,browserLocalPersistence} from "https://www.gstatic.com/firebasejs/12.4.0/firebase-auth.js";
 const firebaseConfig={apiKey:"AIzaSyBjpkSLhZxPLlG_OuQOk1inCPCHqmRTWU0",authDomain:"kansai-trip-2027-e2b7d.firebaseapp.com",projectId:"kansai-trip-2027-e2b7d",storageBucket:"kansai-trip-2027-e2b7d.firebasestorage.app",messagingSenderId:"149664471861",appId:"1:149664471861:web:6d0208ea054ba03a454a7c"};
-const app=initializeApp(firebaseConfig),db=getFirestore(app),auth=getAuth(app),tripRef=doc(db,"sharedTrips","kansai-2027");
+const app=initializeApp(firebaseConfig),db=initializeFirestore(app,{experimentalForceLongPolling:true,useFetchStreams:false}),auth=getAuth(app),tripRef=doc(db,"sharedTrips","kansai-2027");
 let user=null,remote=false,unsubscribeTrip=null,tripReady=false;
 const esc=v=>String(v).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const capture=()=>Object.fromEntries([...Array(8)].map((_,i)=>[i+1,document.getElementById('timeline'+(i+1)).innerHTML]));
