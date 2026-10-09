@@ -786,24 +786,30 @@ window.editEvent=b=>{
  panel.style.cssText='grid-column:1/-1;margin:14px 0 2px';
  panel.innerHTML=`<div style="font-weight:750;margin-bottom:12px">編輯行程內容</div><div class="editorgrid">
  <label>時間<input name="time" type="text"></label><label>景點名稱<input name="title" type="text"></label>
- <label>圖示<input name="icon" type="text"></label><label>Google Maps 搜尋名稱<input name="map" type="text"></label>
+ <label>圖示<input name="icon" type="text"></label><label>Google Maps 地點名稱或完整網址<input name="map" type="text" placeholder="貼上 Google Maps 網址或輸入地點名稱"></label>
  <label style="grid-column:1/-1">交通／備註<textarea name="desc" rows="4"></textarea></label>
  </div><div class="editorbuttons"><button type="button" class="cancelbtn">取消</button><button type="button" class="savebtn">儲存所有修改</button></div>`;
  const field=k=>panel.querySelector('[name="'+k+'"]');
  field('time').value=timeEl.textContent.trim();field('title').value=titleEl.textContent.trim();field('icon').value=iconEl.textContent.trim();field('desc').value=descEl.textContent.trim();
- try{field('map').value=new URL(mapEl.href).searchParams.get('query')||titleEl.textContent.trim()}catch{field('map').value=titleEl.textContent.trim()}
+ try{const u=new URL(mapEl.href);field('map').value=u.searchParams.get('query')||mapEl.href}catch{field('map').value=mapEl.href||titleEl.textContent.trim()}
  panel.querySelector('.cancelbtn').onclick=()=>panel.remove();
  panel.querySelector('.savebtn').onclick=async()=>{
    const title=field('title').value.trim();if(!title)return alert('請輸入景點名稱');
    const values={time:field('time').value.trim()||'未定',title,icon:field('icon').value.trim()||'📍',desc:field('desc').value.trim(),map:field('map').value.trim()||title};
    timeEl.textContent=values.time;titleEl.textContent=values.title;iconEl.textContent=values.icon;descEl.textContent=values.desc;
-   mapEl.href='https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(values.map);
+   mapEl.href=/^https:\/\//i.test(values.map)?values.map:'https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(values.map);
    panel.remove();await save();
  };
  event.appendChild(panel);panel.scrollIntoView({behavior:'smooth',block:'nearest'});
 };
 window.deleteEvent=async b=>{if(!user||!tripReady)return alert('請先登入並等待雲端行程載入完成');if(confirm('確定要刪除這個行程嗎？')){b.closest('.event').remove();await save()}};
 window.showDay=n=>{document.querySelectorAll('.day').forEach(x=>x.classList.remove('active'));document.querySelectorAll('.nav button').forEach(x=>x.classList.remove('active'));document.getElementById('day'+n).classList.add('active');document.getElementById('b'+n).classList.add('active');localStorage.setItem('tripDay',n)};
+// Booking guide is reference-only; trip data remains stored in Firestore.
+const ticketGuide=document.createElement('section');
+ticketGuide.className='note';
+ticketGuide.style.cssText='max-width:900px;margin:20px auto;padding:18px 20px;line-height:1.85';
+ticketGuide.innerHTML=`<strong>🎟️ 門票／預約提醒（2027 年 1 月）</strong><div>🔴 優先預訂：USJ 門票（熱門設施可評估快速通關）；1/15 15:00 大阪卡丁車（確認預約及駕照文件）。</div><div>🟠 建議提前：大阪海遊館（指定時段入場）、通天閣觀景台（熱門時段）、熱門餐廳（蟹道樂及燒肉）。</div><div>🟡 付費但通常可現場處理：大阪城天守閣；部分寺社特殊區域可能收費。</div><div>🟢 一般不需門票：道頓堀、心齋橋、伏見稻荷大社一般參拜、奈良公園、難波八阪神社、木津市場等。</div><small>門票開賣日與營業時間以各景點官方公告為準。此區為提醒，不代表已購票。</small>`;
+document.querySelector('.note')?.before(ticketGuide);
 const initial=capture(),bar=document.createElement('div');bar.style.cssText='max-width:900px;margin:14px auto 0;padding:0 16px;display:flex;justify-content:flex-end;align-items:center;gap:9px;font-size:13px';bar.innerHTML='<span id="authState">尚未登入</span><button id="authBtn" style="border:0;border-radius:9px;padding:9px 12px;background:#111;color:#fff;cursor:pointer">Google 登入</button>';document.querySelector('.hero').after(bar);
 
 const authError=document.createElement('div');
